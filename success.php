@@ -18,7 +18,7 @@
 			Article published successfully <br>
 			<div class="card-body">
 				<a href="file_upload.php">Publish another Article</a><br>
-				<a href="view_article.php">View Articles</a>
+				<a href="index.php">View Articles</a>
 			</div>
 		</div>
 	</div>

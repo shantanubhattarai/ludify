@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
 -- Dumping data for table ludifydb.user_roles: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 INSERT INTO `user_roles` (`role_id`, `role_name`) VALUES
-	(1, 'user');
+	(1ludify, 'user');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 
 -- Dumping structure for table ludifydb.users
@@ -62,11 +62,6 @@ CREATE TABLE IF NOT EXISTS `files` (
   PRIMARY KEY (`file_id`,`link`(100))
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table ludifydb.files: ~2 rows (approximately)
-/*!40000 ALTER TABLE `files` DISABLE KEYS */;
-INSERT INTO `files` (`file_id`, `link`, `no_of_downloads`) VALUES
-	(1, '../files/06.23.18/Dumpper v.91.2.rar', 0),
-	(2, '../files/06.23.18/Capture.PNG', 0);
 /*!40000 ALTER TABLE `files` ENABLE KEYS */;
 -- Dumping structure for table ludifydb.articles
 CREATE TABLE IF NOT EXISTS `articles` (
@@ -84,11 +79,6 @@ CREATE TABLE IF NOT EXISTS `articles` (
   CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=latin1;
 
--- Dumping data for table ludifydb.articles: ~2 rows (approximately)
-/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` (`article_id`, `article_title`, `article_body`, `file_id`, `author_id`, `article_category`, `date_of_upload`) VALUES
-	(1004, 'Dumpper', '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.                ', 1, 1, 'category1', '2018-06-12'),
-	(1005, 'Lorem', 'Lorem Ipsum dolor dolor I see a little fellow yello yello. heloo world.', 2, 1, 'category2', '2018-06-20');
-/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
+
 
 

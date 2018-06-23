@@ -21,6 +21,10 @@
 				$query = "SELECT * FROM articles WHERE article_id = $id";
 				$result = mysqli_query($conn, $query);
 				$row = mysqli_fetch_assoc($result);
+
+				$sql2 = mysqli_query($conn,"select link from files where file_id = ".$row['file_id']);
+				$row2 = mysqli_fetch_assoc($sql2);
+				$link =  $row2['link'];
 			?>
 			<div class="card border-0">
 				<div class="card-header">
@@ -28,6 +32,10 @@
 				</div>
 				<div class="card-body">
 					<?= $row['article_body']; ?>
+					<form action = "download_file.php" method="post">
+						<input type="text" name="link" value=<?= $link?> hidden >
+						<input class="btn btn-info" value="Download" type="submit" name="submit">
+					</form>
 				</div>
 			</div>
 		</div>
