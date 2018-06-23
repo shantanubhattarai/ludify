@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="col-md-9 container main-content">
-			<form action="database/file_upload.php" method ="POST" enctype="multipart/form-data">
+			<form action="database\file_upload.php" method ="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<input type="file" name="file">
 					<input type="submit" value="UPLOAD" name="submit">

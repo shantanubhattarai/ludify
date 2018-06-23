@@ -4,7 +4,15 @@
 	//take userid from the session variable stored during login
 	// id =$_SESSION['user_id'];
 	$date = date("m.d.y");
-	$target = "../files/".$date;//.$id;
+	//!-------------------------
+
+	//DELETE THE DATE AND INSERT THE ARTICLE ID INSTEAD OF THE DATE..
+	//LILKE THIS
+	// $target = "./files/".$article_id;
+	//get article_id from the article form you created
+	$target = "../files/".$date;
+
+	//-------------! 
 	if(!file_exists($target) && !is_dir($target)){
 		mkdir($target,0700);
 	}
@@ -25,7 +33,7 @@
 			$query = "insert into files(link,no_of_downloads) values('$file_path','0')";
 			$sql = mysqli_query($conn,$query);
 			if($sql){
-				header('location:/../file_upload.php');
+				header('location:..\file_upload.php');
 			}
 			else{
 				echo "NOT INSERTED TO DATABASE";

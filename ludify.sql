@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2018 at 05:23 PM
+-- Generation Time: Jun 23, 2018 at 09:59 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -102,7 +102,17 @@ CREATE TABLE `files` (
 --
 
 INSERT INTO `files` (`file_id`, `link`, `no_of_downloads`) VALUES
-(0, '../files/06.22.18/User.docx', 0);
+(1, '../files/06.23.18/User.docx', 0),
+(2, '../files/06.23.18/User.docx', 0),
+(3, '../files/06.23.18/User.docx', 0),
+(4, '../files/06.23.18/User.docx', 0),
+(5, '../files/06.23.18/User.docx', 0),
+(6, '../files/06.23.18/Assignment3.docx', 0),
+(7, '../files/06.23.18/Assignment3.docx', 0),
+(8, '../files/06.23.18/Assignment3.docx', 0),
+(9, '../files/06.23.18/Assignment3.docx', 0),
+(10, '../files/06.23.18/Assignment3.docx', 0),
+(11, '../files/06.23.18/Assignment3.docx', 0);
 
 -- --------------------------------------------------------
 
@@ -283,6 +293,16 @@ ALTER TABLE `user_profile`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`role_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
