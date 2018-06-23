@@ -3,6 +3,7 @@
 	include 'get_username.php';
 	//take userid from the session variable stored during login
 	// id =$_SESSION['user_id'];
+
 	$date = date("m.d.y");
 	//!-------------------------
 
@@ -22,7 +23,7 @@
 		$filetype=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 	}
 
-	if(isset($_POST['submit'])){
+	if(isset($_POST['article'])){
 		//get today date
 		//check directory if the folder with date matches
 		// if matches upload in same directory
@@ -33,15 +34,27 @@
 			$query = "insert into files(link,no_of_downloads) values('$file_path','0')";
 			$sql = mysqli_query($conn,$query);
 			if($sql){
-				header('location:..\file_upload.php');
+				//header('location:..\file_upload.php');
+				$query = "SELECT * FROM files WHERE link = '$file_path'";
+				$result = mysqli_query($conn, $query);
+				$row = mysqli_fetch_assoc($result);
+				$category_id = mysqli_real_escape_string($conn,$_POST['category_id']);
+  				$title = mysqli_real_escape_string($conn,$_POST['title']);
+  				$body = mysqli_real_escape_string($conn,$_POST['body']);
+
+				$sql1 = "INSERT INTO articles(category_id,title,body,file_id) VALUES ('$category_id', '$title', '$body', '$row[file_id]')";
+
+				if(mysqli_query($conn, $sql1))
+					header('location: /ludify/success.php');
+				else
+					echo "error inserting to databse";
 			}
 			else{
-				echo "NOT INSERTED TO DATABASE";
+				echo "File Upload Failed";
 			}
 		}
 		else{
 			echo "File upload is unsuccessfull";
 		}
-		
 	}
 ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2018 at 09:59 AM
+-- Generation Time: Jun 23, 2018 at 12:18 PM
 -- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,8 +34,16 @@ CREATE TABLE `articles` (
   `body` text,
   `file_id` int(11) DEFAULT NULL,
   `uploader_id` int(11) DEFAULT NULL,
-  `file_categories` int(11) DEFAULT NULL
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`article_id`, `title`, `body`, `file_id`, `uploader_id`, `category_id`) VALUES
+(1004, 'Dumpper', '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.                ', 1, NULL, 1),
+(1005, 'Lorem', 'Lorem Ipsum dolor dolor I see a little fellow yello yello. heloo world.', 2, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -47,6 +55,16 @@ CREATE TABLE `article_categories` (
   `article_category_id` int(11) NOT NULL,
   `category_name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `article_categories`
+--
+
+INSERT INTO `article_categories` (`article_category_id`, `category_name`) VALUES
+(1, 'Windows Utility'),
+(2, 'Linux Utility'),
+(3, 'Category 3'),
+(4, 'Category 4');
 
 -- --------------------------------------------------------
 
@@ -102,17 +120,8 @@ CREATE TABLE `files` (
 --
 
 INSERT INTO `files` (`file_id`, `link`, `no_of_downloads`) VALUES
-(1, '../files/06.23.18/User.docx', 0),
-(2, '../files/06.23.18/User.docx', 0),
-(3, '../files/06.23.18/User.docx', 0),
-(4, '../files/06.23.18/User.docx', 0),
-(5, '../files/06.23.18/User.docx', 0),
-(6, '../files/06.23.18/Assignment3.docx', 0),
-(7, '../files/06.23.18/Assignment3.docx', 0),
-(8, '../files/06.23.18/Assignment3.docx', 0),
-(9, '../files/06.23.18/Assignment3.docx', 0),
-(10, '../files/06.23.18/Assignment3.docx', 0),
-(11, '../files/06.23.18/Assignment3.docx', 0);
+(1, '../files/06.23.18/Dumpper v.91.2.rar', 0),
+(2, '../files/06.23.18/Capture.PNG', 0);
 
 -- --------------------------------------------------------
 
@@ -210,7 +219,7 @@ ALTER TABLE `articles`
   ADD PRIMARY KEY (`article_id`),
   ADD KEY `file_id` (`file_id`),
   ADD KEY `uploader_id` (`uploader_id`),
-  ADD KEY `file_categories` (`file_categories`);
+  ADD KEY `file_categories` (`category_id`);
 
 --
 -- Indexes for table `article_categories`
@@ -299,10 +308,16 @@ ALTER TABLE `user_roles`
 --
 
 --
+-- AUTO_INCREMENT for table `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
+
+--
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -314,7 +329,7 @@ ALTER TABLE `files`
 ALTER TABLE `articles`
   ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`file_id`) REFERENCES `files` (`file_id`),
   ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`uploader_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `articles_ibfk_3` FOREIGN KEY (`file_categories`) REFERENCES `article_categories` (`article_category_id`);
+  ADD CONSTRAINT `articles_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `article_categories` (`article_category_id`);
 
 --
 -- Constraints for table `comments`
