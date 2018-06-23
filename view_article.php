@@ -7,7 +7,7 @@
 		<div class="col-md-2 container">
 			<div class="card sidebar sidebar-left">
 				<ul class="list-group-flush" style="padding:0; margin-bottom: 0;">
-					<a href="#" class="list-group-item" style="color:#F44336;opacity: 0.93;">Home</a>
+					<a href="." class="list-group-item" style="color:#F44336;opacity: 0.93;">Home</a>
 					<a href="#" class="list-group-item text-muted">Dashboard</a>
 					<a href="#" class="list-group-item text-muted">Your Requests</a>
 					<a href="#" class="list-group-item text-muted">About</a>
