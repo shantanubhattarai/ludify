@@ -20,8 +20,8 @@
 			<div class="form-group">
 				<label><b>Type of Article</b></label> <br>
                 <select name="category_id">
-  						<option value="1">Windows Utilty</option>
-  						<option value="2">Linux Utility</option>
+  						<option value="1">Category 1</option>
+  						<option value="2">Category 2</option>
   						<option value="3">category 3</option>
   						<option value="4">category 4</option>
 				</select><br>
