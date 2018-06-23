@@ -1,7 +1,9 @@
-*Changelog
+# Changelog
 
 2018-06-23 <Shantanu>:
 1. Changed View Style
+2. Changed articles table
+3. Dropped article_categories table
 
 2018-06-23 <Srishan>:
 1. Article Publishing System
