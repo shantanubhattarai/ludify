@@ -1,5 +1,12 @@
 # Changelog
 
+2018-06-20<Shantanu>: 
+1. Created layout skeleton
+2. Added article viewing
+
+2018-06-22 <Makai>: 
+1. File Upload System
+
 2018-06-23 <Shantanu>:
 1. Changed View Style
 2. Changed articles table
@@ -9,10 +16,13 @@
 1. Article Publishing System
 
 2018-06-22 <Makai>: 
-1. File Upload System
+1. File Download System
 
-2018-06-20<Shantanu>: 
-1. Created layout skeleton
-2. Added article viewing
+2018-6-28
+Login Registration
+
+2018-7-1 <Makai>:
+Login Registration 
+
 
 

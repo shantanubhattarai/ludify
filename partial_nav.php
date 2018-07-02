@@ -30,7 +30,7 @@
 					<a id="filter-toggle" class="nav-link" href="#"> filter options </a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#"> sign in </a>
+					<a class="nav-link" href="login.php"> sign in </a>
 				</li>
 			</ul>
 		</div>

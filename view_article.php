@@ -32,7 +32,7 @@
 				</div>
 				<div class="card-body">
 					<?= $row['article_body']; ?>
-					<form action = "download_file.php" method="post">
+					<form action = "database/download_file.php" method="post">
 						<input type="text" name="link" value=<?= $link?> hidden >
 						<input class="btn btn-info" value="Download" type="submit" name="submit">
 					</form>
