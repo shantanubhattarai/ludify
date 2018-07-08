@@ -14,3 +14,21 @@
 		});
 	});
 </script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#dashboard").click(function(){
+			$("#dashboard").removeClass("text-muted");
+		});
+		$("#request").click(function(){
+			$("#request").removeClass("text-muted");
+		});
+		$("#about").click(function(){
+			$("#about").removeClass("text-muted");
+		});
+		$("#contact").click(function(){
+			$("#contact").removeClass("text-muted");
+		});
+	});
+
+</script>

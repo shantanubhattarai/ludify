@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2018 at 06:31 PM
+-- Generation Time: Jul 08, 2018 at 10:03 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -119,6 +119,28 @@ CREATE TABLE `replies` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `request_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `request_body` text,
+  `date_of_request` date DEFAULT NULL,
+  `request_title` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `requests`
+--
+
+INSERT INTO `requests` (`request_id`, `user_id`, `request_body`, `date_of_request`, `request_title`) VALUES
+(1, 87, 'This is a sample request', '2018-07-08', 'Title'),
+(2, 86, 'Another Request is here', '2018-07-01', 'Title2');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -135,19 +157,20 @@ CREATE TABLE `users` (
   `username` varchar(500) NOT NULL,
   `dob` date NOT NULL,
   `gender` varchar(200) NOT NULL,
-  `contact` bigint(10) NOT NULL
+  `contact` bigint(10) NOT NULL,
+  `role_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `hash`, `active`, `loggedin`, `avatar`, `username`, `dob`, `gender`, `contact`) VALUES
-(84, 'sudip', 'Neupane', 'shibasudipyoddha@gmail.com', '$2y$10$J/ekEhaTAYCuSzu5qEUFGOFwnM08e984XPBPOZawKvoWIM.SJwBvK', 'e0cf1f47118daebc5b16269099ad7347', 1, 1, '', 'sudip', '2018-06-27', 'male', 13254651),
-(86, 'sdf', 'sdf', 'sdfsd', '$2y$10$1cVhldjdNh9nnv3Cq5StfuyNK70ujMe0BszNCpp2IwzbwyZGZyc92', 'a9a6653e48976138166de32772b1bf40', 0, 0, '', 'sdf', '2018-06-25', 'male', 0),
-(87, 'sudip', 'Neupane', 'sudipssy@yahoo0.com', '$2y$10$vTF2mwoccfXoEX3iG0k/COkcN9S98GETiSLJztmhXxHScaXaXP33y', '15de21c670ae7c3f6f3f1f37029303c9', 0, 0, '', 'ssya', '2018-06-26', '', 9841410162),
-(88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, 'asdfas', 'ram', '0000-00-00', '', 0),
-(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, 'asdfas', 'hari', '2000-01-01', 'male', 98765431);
+INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `hash`, `active`, `loggedin`, `avatar`, `username`, `dob`, `gender`, `contact`, `role_id`) VALUES
+(84, 'sudip', 'Neupane', 'shibasudipyoddha@gmail.com', '$2y$10$J/ekEhaTAYCuSzu5qEUFGOFwnM08e984XPBPOZawKvoWIM.SJwBvK', 'e0cf1f47118daebc5b16269099ad7347', 1, 1, '', 'sudip', '2018-06-27', 'male', 13254651, NULL),
+(86, 'sdf', 'sdf', 'sdfsd', '$2y$10$1cVhldjdNh9nnv3Cq5StfuyNK70ujMe0BszNCpp2IwzbwyZGZyc92', 'a9a6653e48976138166de32772b1bf40', 0, 0, '', 'sdf', '2018-06-25', 'male', 0, NULL),
+(87, 'sudip', 'Neupane', 'sudipssy@yahoo0.com', '$2y$10$vTF2mwoccfXoEX3iG0k/COkcN9S98GETiSLJztmhXxHScaXaXP33y', '15de21c670ae7c3f6f3f1f37029303c9', 0, 0, '', 'ssya', '2018-06-26', '', 9841410162, NULL),
+(88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, 'asdfas', 'ram', '0000-00-00', '', 0, 2),
+(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, 'asdfas', 'hari', '2000-01-01', 'male', 98765431, NULL);
 
 -- --------------------------------------------------------
 
@@ -165,7 +188,8 @@ CREATE TABLE `user_roles` (
 --
 
 INSERT INTO `user_roles` (`role_id`, `role_name`) VALUES
-(1, 'user');
+(1, 'User'),
+(2, 'Developer');
 
 --
 -- Indexes for dumped tables
@@ -202,10 +226,18 @@ ALTER TABLE `replies`
   ADD KEY `reply_user_id` (`reply_user_id`);
 
 --
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`request_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- Indexes for table `user_roles`
@@ -242,6 +274,12 @@ ALTER TABLE `replies`
   MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -271,6 +309,18 @@ ALTER TABLE `comments`
 ALTER TABLE `replies`
   ADD CONSTRAINT `replies_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`comment_id`),
   ADD CONSTRAINT `replies_ibfk_2` FOREIGN KEY (`reply_user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `requests`
+--
+ALTER TABLE `requests`
+  ADD CONSTRAINT `requests_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_roles` (`role_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

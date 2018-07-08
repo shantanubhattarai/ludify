@@ -3,20 +3,7 @@
 <?php include 'database/get_username.php'; ?>
 
 <!-- TODO:include check for article id to redirect to list here -->
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-2 container">
-			<div class="card sidebar sidebar-left">
-				<ul class="list-group-flush" style="padding:0; margin-bottom: 0;">
-					<a href="." class="list-group-item" style="color:#F44336;opacity: 0.93;">Home</a>
-					<a href="#" class="list-group-item text-muted">Dashboard</a>
-					<a href="#" class="list-group-item text-muted">Your Requests</a>
-					<a href="#" class="list-group-item text-muted">About</a>
-					<a href="#" class="list-group-item text-muted">Contact</a>
-				</ul>
-			</div>
-		</div>
+<?php include'partial_sidebar.php'; ?>
 		<div class="col-md-9 container main-content">
 			<?php
 				$id = $_GET['article_id'];
@@ -42,7 +29,7 @@
 			
 				<?php 
 //COMMENT SECTION
-					$result  = mysqli_query($conn,"SELECT * FROM comments where article_id = '$id'");
+					$result  = mysqli_query($conn,"SELECT * FROM comments where article_id = '$id' order by comment_date desc");
 					if(mysqli_num_rows($result)>0){
 						while($row = mysqli_fetch_assoc($result)){
 							$comment_id = $row['comment_id'];
@@ -53,7 +40,7 @@
 								echo GetUsername($conn,$row['comment_user_id'])."<br>";
 							 	echo $row['comment_body'];
 //REPLY SECTION
-							 	$result2 = mysqli_query($conn,"SELECT * FROM replies where comment_id = '$comment_id'");
+							 	$result2 = mysqli_query($conn,"SELECT * FROM replies where comment_id = '$comment_id' order by reply_date desc");
 							 	if(mysqli_num_rows($result2) >0){
 									while($row2 = mysqli_fetch_assoc($result2)){
 							 			echo GetUsername($conn,$row['reply_user_id'])."<br>";
