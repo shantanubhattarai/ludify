@@ -1,12 +1,16 @@
 <?php
 	include 'connection.php';
 	include 'get_username.php';
-	
-
+	session_start();
+	// add date
 	$query =  mysqli_query($conn,"select article_id from articles order by article_id desc limit 1");
 	$row = mysqli_fetch_assoc($query);
 	$article_id = $row['article_id']+1;
 	$target= "../files/".$article_id;
+
+	$user_id = $_SESSION['user_id'];
+
+	echo $user_id;
 
 	if(!file_exists($target) && !is_dir($target)){
 		mkdir($target,0700);
@@ -34,8 +38,8 @@
 				$category_id = mysqli_real_escape_string($conn,$_POST['category_id']);
   				$title = mysqli_real_escape_string($conn,$_POST['title']);
   				$body = mysqli_real_escape_string($conn,$_POST['body']);
-
-				$sql1 = "INSERT INTO articles(article_category,article_title,article_body,author_id,file_id) VALUES ('$category_id', '$title', '$body','1', '$file_id')";
+  				
+				$sql1 = "INSERT INTO articles(article_category,article_title,article_body,author_id,file_id) VALUES ('$category_id', '$title', '$body','$user_id', '$file_id')";
 
 				if(mysqli_query($conn, $sql1))
 					header('location: /ludify/success.php');

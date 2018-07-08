@@ -123,7 +123,4 @@
 </script>
 
 
-
-
-</body>
-</html>
+<?php include 'partial_lower.php'?>
