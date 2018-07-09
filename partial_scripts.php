@@ -17,18 +17,42 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+		if(!sessionStorage.index){
+			$("#home").removeClass("text-muted");
+		}
+		$("#home").click(function(){
+			sessionStorage.setItem("index","1");
+		});
 		$("#dashboard").click(function(){
-			$("#dashboard").removeClass("text-muted");
+			sessionStorage.setItem("index","2");
 		});
 		$("#request").click(function(){
-			$("#request").removeClass("text-muted");
+			sessionStorage.setItem("index","3");
 		});
 		$("#about").click(function(){
-			$("#about").removeClass("text-muted");
+			sessionStorage.setItem("index","4");
 		});
 		$("#contact").click(function(){
-			$("#contact").removeClass("text-muted");
+			sessionStorage.setItem("index","5");
 		});
-	});
+
+		var index = sessionStorage.getItem("index"); 
+		if(index==1){
+			$("#home").removeClass("text-muted");
+		}
+		else if(index==2){
+			$("#dashboard").removeClass("text-muted");
+		}
+		else if(index==3){
+			$("#request").removeClass("text-muted");
+		}
+		else if(index==4){
+			$("#about").removeClass("text-muted");
+		}
+		else{
+			$("#contact").removeClass("text-muted");
+		}
+		});
+
 
 </script>
