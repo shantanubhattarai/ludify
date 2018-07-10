@@ -27,4 +27,8 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	sessionStorage.removeItem("index");
+</script>
+
 <?php include 'partial_lower.php'; ?>

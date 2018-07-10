@@ -17,9 +17,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		if(!sessionStorage.index){
-			$("#home").removeClass("text-muted");
-		}
 		$("#home").click(function(){
 			sessionStorage.setItem("index","1");
 		});
@@ -35,7 +32,10 @@
 		$("#contact").click(function(){
 			sessionStorage.setItem("index","5");
 		});
-
+		
+		if(!sessionStorage.index){
+			$("#home").removeClass("text-muted");
+		}
 		var index = sessionStorage.getItem("index"); 
 		if(index==1){
 			$("#home").removeClass("text-muted");
@@ -49,7 +49,7 @@
 		else if(index==4){
 			$("#about").removeClass("text-muted");
 		}
-		else{
+		else if(index==5){
 			$("#contact").removeClass("text-muted");
 		}
 		});

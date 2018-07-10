@@ -11,5 +11,4 @@
 				</ul>
 			</div>
 		</div>
-		<!-- SEE the partial scripts to change the text-muted part-->
 		
