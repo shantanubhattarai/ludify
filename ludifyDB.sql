@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2018 at 10:03 PM
+-- Generation Time: Jul 10, 2018 at 07:28 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ludifydb`
 --
-CREATE DATABASE IF NOT EXISTS `ludifydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ludifydb`;
 
 -- --------------------------------------------------------
 
@@ -136,7 +134,8 @@ CREATE TABLE `requests` (
 
 INSERT INTO `requests` (`request_id`, `user_id`, `request_body`, `date_of_request`, `request_title`) VALUES
 (1, 87, 'This is a sample request', '2018-07-08', 'Title'),
-(2, 86, 'Another Request is here', '2018-07-01', 'Title2');
+(2, 86, 'Another Request is here', '2018-07-01', 'Title2'),
+(3, 89, 'This is the third request', NULL, 'Title 3');
 
 -- --------------------------------------------------------
 
@@ -170,7 +169,7 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, 
 (86, 'sdf', 'sdf', 'sdfsd', '$2y$10$1cVhldjdNh9nnv3Cq5StfuyNK70ujMe0BszNCpp2IwzbwyZGZyc92', 'a9a6653e48976138166de32772b1bf40', 0, 0, '', 'sdf', '2018-06-25', 'male', 0, NULL),
 (87, 'sudip', 'Neupane', 'sudipssy@yahoo0.com', '$2y$10$vTF2mwoccfXoEX3iG0k/COkcN9S98GETiSLJztmhXxHScaXaXP33y', '15de21c670ae7c3f6f3f1f37029303c9', 0, 0, '', 'ssya', '2018-06-26', '', 9841410162, NULL),
 (88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, 'asdfas', 'ram', '0000-00-00', '', 0, 2),
-(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, 'asdfas', 'hari', '2000-01-01', 'male', 98765431, NULL);
+(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, 'asdfas', 'hari', '2000-01-01', 'male', 98765431, 1);
 
 -- --------------------------------------------------------
 
@@ -277,7 +276,7 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
