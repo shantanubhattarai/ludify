@@ -1,5 +1,3 @@
-<?php include 'partial_lower.php'; ?>
-
 <?php $title = "Request" ;?>
 <?php include 'partial_upper.php'; ?>
 <?php include 'database/get_username.php';
@@ -14,7 +12,7 @@
 			$user_id = $_SESSION['user_id'];
 			if(GETUSERROLE($conn,$user_id) == 1){
 		?>
-				<a href="add_request.php" class="btn btn-outline-danger">Make a Request Here!</a>		
+				<a href="add_request.php">Make a Request Here!</a>		
 		<?php
 			}
 		}
@@ -26,7 +24,7 @@
 						<h3><a href="view_request.php?request_id=<?=$row['request_id'] ?>"> <?=$row['request_title'] ?> </a></h3>
 					</div>
 					<div class="card-body card-meta text-muted">
-						Requested by <?=GETUSERNAME($conn,$user_id)?> in <?=$row['date_of_request']?>	
+						Requested by <?=GETUSERNAME($conn,$row['user_id'])?> in <?=$row['date_of_request']?>	
 					</div>
 				</div>
 		<?php

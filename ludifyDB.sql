@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2018 at 07:28 PM
+-- Generation Time: Jul 11, 2018 at 04:48 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ludifydb`
 --
+CREATE DATABASE IF NOT EXISTS `ludifydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `ludifydb`;
 
 -- --------------------------------------------------------
 
@@ -103,15 +105,12 @@ INSERT INTO `files` (`file_id`, `link`, `no_of_downloads`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `replies`
+-- Table structure for table `notification`
 --
 
-CREATE TABLE `replies` (
-  `reply_id` int(11) NOT NULL,
-  `reply_body` text,
-  `reply_date` date DEFAULT NULL,
-  `reply_user_id` int(11) DEFAULT NULL,
-  `comment_id` int(11) DEFAULT NULL
+CREATE TABLE `notification` (
+  `user_id` int(11) DEFAULT NULL,
+  `last_logged_in` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -217,12 +216,10 @@ ALTER TABLE `files`
   ADD PRIMARY KEY (`file_id`,`link`(100));
 
 --
--- Indexes for table `replies`
+-- Indexes for table `notification`
 --
-ALTER TABLE `replies`
-  ADD PRIMARY KEY (`reply_id`),
-  ADD KEY `comment_id` (`comment_id`),
-  ADD KEY `reply_user_id` (`reply_user_id`);
+ALTER TABLE `notification`
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `requests`
@@ -267,12 +264,6 @@ ALTER TABLE `files`
   MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `replies`
---
-ALTER TABLE `replies`
-  MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
@@ -303,11 +294,10 @@ ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`comment_user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `replies`
+-- Constraints for table `notification`
 --
-ALTER TABLE `replies`
-  ADD CONSTRAINT `replies_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`comment_id`),
-  ADD CONSTRAINT `replies_ibfk_2` FOREIGN KEY (`reply_user_id`) REFERENCES `users` (`user_id`);
+ALTER TABLE `notification`
+  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `requests`

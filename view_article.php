@@ -37,72 +37,33 @@
 
 				<div class="card border-0">
 							<?php 
-								echo GetUsername($conn,$row['comment_user_id'])."<br>";
+								echo "<b>".GetUsername($conn,$row['comment_user_id'])."</b><br>";
 							 	echo $row['comment_body'];
-//REPLY SECTION
-							 	$result2 = mysqli_query($conn,"SELECT * FROM replies where comment_id = '$comment_id' order by reply_date desc");
-							 	if(mysqli_num_rows($result2) >0){
-									while($row2 = mysqli_fetch_assoc($result2)){
-							 			echo GetUsername($conn,$row['reply_user_id'])."<br>";
-							 			echo $row['reply_body'];
-							 		}
-							 	}
-//ADD REPLY SECTION
 							?>
-						<button class="btn btn-outline-danger" onclick="addReply()" id="replyadd_btn" value="Add Reply">
-							Add Reply
-						</button>
-						<div id="addReply">
-							<?=$comment_id;?>
-							<form action="database/reply.php" method="post">
-								<textarea rows = "3" name="body"></textarea>
-								<input type="text" name="comment_id" hidden value="<?=$comment_id?>">
-								<div class="form-group">
-									<button type="submit" class="btn btn-outline-danger" name="submit">Submit</button>
-								</div>
-							</form>
-						</div>
 						<?php
 						}
-						echo "<br>";
 					}
 				?>
 				</div>
-
-				<div class="card border-0">
-					<form action="database/comment.php" method="post">
-						<textarea rows = "3" name="body"></textarea>
-						<input type="text" name="article_id" hidden value="<?=$id?>">
-						<div class="form-group">
-							<button type="submit" class="btn btn-outline-danger" name="submit">Submit</button>
-						</div>
-					</form>
-				</div>
+				<?php 
+					if(isset($_SESSION['user_id'])){
+				?>
+					<div class="card border-0">
+						<form action="database/comment.php" method="post">
+							<textarea rows = "3" name="body"></textarea>
+							<input type="text" name="article_id" hidden value="<?=$id?>">
+							<div class="form-group">
+								<button type="submit" class="btn btn-outline-danger" name="submit">Submit</button>
+							</div>
+						</form>
+					</div>
+				<?php
+					}
+				?>
 			</div>
 
 		</div>
 	</div>
 </div>
 
-<script type="text/javascript">
-	var replyarea = document.getElementById('addReply');
-	var reply_area_style= replyarea.style.display;
-	replyarea.style.display = 'none';	
-
-	var replyadd_btn = document.getElementById('replyadd_btn');
-	function addReply(){
-		if(replyarea.style.display=='none'){
-			replyarea.style.display='block';
-			replyadd_btn.innerHTML="Cancel";
-			console.log("ON IF");
-		}
-		else{
-			replyarea.style.display = 'none';
-			replyadd_btn.innerHTML='Add Reply';
-			console.log("ON ELSE");
-		}
-
-
-	}
-</script>
 <?php include 'partial_lower.php'; ?>

@@ -19,3 +19,6 @@
 	</div>
 </div>
 
+<?php include 'partial_lower.php'; ?>
+
+

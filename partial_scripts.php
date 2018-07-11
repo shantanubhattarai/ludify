@@ -4,7 +4,7 @@
 <script>
 
 	$(document).ready(function(){
-		$( "#filter-options" ).toggle();
+		$( "#filter-options" ).hide();
 	});
 
 	$(function() {

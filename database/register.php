@@ -24,53 +24,54 @@ $dob = mysqli_real_escape_string($conn,$_POST['dob']);
 $username = mysqli_real_escape_string($conn,$_POST['username']);
 $active=$loggedin=0;
 $avatar = $_FILES['file']['name'];
-$path_to_upload = "profile_images/".$_FILES["file"]["name"];
+$path_to_upload = "media/".$_FILES["file"]["name"];
 
 
-	move_uploaded_file($_FILES["file"]["tmp_name"], $path_to_upload);
+if(move_uploaded_file($_FILES["file"]["tmp_name"], $path_to_upload)){
 
 
-$query1="SELECT * FROM `users` WHERE username ='$username' ";
-$result1=mysqli_query($conn,$query1);
-$query = "SELECT * FROM `users` WHERE email ='$email' ";
-$result = mysqli_query($conn,$query);
-if(mysqli_num_rows($result) > 0 || mysqli_num_rows($result1) >0)
-{
-	$_SESSION['message'] =  "The user has already been registered";
-	header("location:error.php");
-}
-else
-{
-	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', 'asdfas')";
-	
+	$query1="SELECT * FROM `users` WHERE username ='$username' ";
+	$result1=mysqli_query($conn,$query1);
+	$query = "SELECT * FROM `users` WHERE email ='$email' ";
 	$result = mysqli_query($conn,$query);
-
-	if($result)
+	if(mysqli_num_rows($result) > 0 || mysqli_num_rows($result1) >0)
 	{
-		/*$_SESSION['active'] = 0; // 0 until the user verifies the account
-		$_SESSION['logged_in'] = true;
-		$_SESSION['message'] = 'Conformation link has been sent to '.$email. ' Please verify your account before logging in.';
-
-		//send registration conformation link
-		$to = $email;
-		$subject = "Conformation email";
-		$message_body = 
-					'Hello '.$firstname.' !!
-					Please verify your account by clicking on the link below:
-
-					http://localhost/kinmail3/verify.php?email='.$email.'&hash='.$hash;
-		mail($to, $subject, $message_body);*/
-		$result = mysqli_query($conn,"select user_id from  users where username='$username");
-		$row= mysqli_fetch_assoc($result);
-		$_SESSION['user_id'] = $row['user_id'];
-
-		header("location:success.php");
+		$_SESSION['message'] =  "The user has already been registered";
+		header("location:error.php");
 	}
 	else
 	{
-		$_SESSION['message'] = "Registration failed";
-		echo mysqli_error($conn);
-		//header("location:error.php");
+		$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', 'asdfas')";
+		
+		$result = mysqli_query($conn,$query);
+
+		if($result)
+		{
+			/*$_SESSION['active'] = 0; // 0 until the user verifies the account
+			$_SESSION['logged_in'] = true;
+			$_SESSION['message'] = 'Conformation link has been sent to '.$email. ' Please verify your account before logging in.';
+
+			//send registration conformation link
+			$to = $email;
+			$subject = "Conformation email";
+			$message_body = 
+						'Hello '.$firstname.' !!
+						Please verify your account by clicking on the link below:
+
+						http://localhost/kinmail3/verify.php?email='.$email.'&hash='.$hash;
+			mail($to, $subject, $message_body);*/
+			$result = mysqli_query($conn,"select user_id from  users where username='$username");
+			$row= mysqli_fetch_assoc($result);
+			$_SESSION['user_id'] = $row['user_id'];
+
+			header("location:success.php");
+		}
+		else
+		{
+			$_SESSION['message'] = "Registration failed";
+			echo mysqli_error($conn);
+			//header("location:error.php");
+		}
 	}
 }
 

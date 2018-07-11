@@ -5,6 +5,10 @@
 label,select,option{
 	color: #6c757d;
 }
+a{
+	color:#D32F2F;
+}
+
 
 
 .form-control{
@@ -54,6 +58,11 @@ label,select,option{
 .sidebar-right{
 	border: none;
 	border-left:1px solid #eee;
+}
+
+.sidebar a{
+	color:#F44336;
+	opacity: 0.93;
 }
 
 .sidebar .list-group-item{
