@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2018 at 04:48 PM
+-- Generation Time: Jul 11, 2018 at 06:47 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -110,8 +110,17 @@ INSERT INTO `files` (`file_id`, `link`, `no_of_downloads`) VALUES
 
 CREATE TABLE `notification` (
   `user_id` int(11) DEFAULT NULL,
-  `last_logged_in` date DEFAULT NULL
+  `notification_id` int(11) NOT NULL,
+  `last_logged_in` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`user_id`, `notification_id`, `last_logged_in`) VALUES
+(89, 1, '2018-07-11 22:29:00'),
+(88, 2, '2018-07-11 18:45:51');
 
 -- --------------------------------------------------------
 
@@ -123,18 +132,18 @@ CREATE TABLE `requests` (
   `request_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `request_body` text,
-  `date_of_request` date DEFAULT NULL,
-  `request_title` text
+  `request_title` text,
+  `date_of_request` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`request_id`, `user_id`, `request_body`, `date_of_request`, `request_title`) VALUES
-(1, 87, 'This is a sample request', '2018-07-08', 'Title'),
-(2, 86, 'Another Request is here', '2018-07-01', 'Title2'),
-(3, 89, 'This is the third request', NULL, 'Title 3');
+INSERT INTO `requests` (`request_id`, `user_id`, `request_body`, `request_title`, `date_of_request`) VALUES
+(1, 87, 'This is a sample request', 'Title', '2018-07-03 03:27:08'),
+(2, 86, 'Another Request is here', 'Title2', '2018-07-01 07:01:06'),
+(3, 89, 'This is the third request', 'Title 3', '2018-07-11 01:07:02');
 
 -- --------------------------------------------------------
 
@@ -219,6 +228,7 @@ ALTER TABLE `files`
 -- Indexes for table `notification`
 --
 ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notification_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -262,6 +272,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `files`
   MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `requests`

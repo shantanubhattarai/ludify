@@ -10,7 +10,27 @@
 			//IF USER IS A GENERAL USER
 		if(isset($_SESSION['user_id'])){
 			$user_id = $_SESSION['user_id'];
-			if(GETUSERROLE($conn,$user_id) == 1){
+			$date = date('Y-m-d H:i:s');
+			$sql = mysqli_query($conn,"SELECT * FROM notification WHERE user_id= '$user_id'");
+			if($sql){
+				if(mysqli_num_rows($sql)>0){
+					$sql = mysqli_query($conn,"UPDATE notification SET last_logged_in = '$date' WHERE user_id = '$user_id'");
+					if(!$sql){
+						echo mysqli_error($conn);
+					}
+				}
+				else{
+					$sql = mysqli_query($conn,"INSERT INTO notification(user_id,last_logged_in) VALUES('$user_id','$date')");
+					if(!$sql){
+						echo mysqli_error($conn);
+					}
+				} 
+			}
+			else{
+				echo mysqli_error($conn);
+			}
+			if(GETUSERROLE($conn,$user_id) == 1){	
+			
 		?>
 				<a href="add_request.php">Make a Request Here!</a>		
 		<?php

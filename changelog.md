@@ -18,7 +18,7 @@
 2018-06-22 <Makai>: 
 1. File Download System
 
-2018-6-28
+2018-6-28<Sudip>
 Login Registration
 
 2018-7-1 <Makai>:
@@ -27,6 +27,15 @@ Comment and repllies
 
 2018-7-9<Makai>:
 Request
+
+2018-7-11<Srishan>
+Pagination
+
+2018-7-11<Makai>
+Notification
+
+2018-7-11<Shantanu>
+Code clean
 
 
 

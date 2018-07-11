@@ -2,7 +2,7 @@
 	include 'connection.php';
 	include 'get_username.php';
 	session_start();
-	// add date
+	$date = date('Y-m-d');
 	$query =  mysqli_query($conn,"select article_id from articles order by article_id desc limit 1");
 	$row = mysqli_fetch_assoc($query);
 	$article_id = $row['article_id']+1;
@@ -39,7 +39,7 @@
   				$title = mysqli_real_escape_string($conn,$_POST['title']);
   				$body = mysqli_real_escape_string($conn,$_POST['body']);
   				
-				$sql1 = "INSERT INTO articles(article_category,article_title,article_body,author_id,file_id) VALUES ('$category_id', '$title', '$body','$user_id', '$file_id')";
+				$sql1 = "INSERT INTO articles(article_category,article_title,article_body,author_id,file_id,date_of_upload) VALUES ('$category_id', '$title', '$body','$user_id', '$file_id','$date')";
 
 				if(mysqli_query($conn, $sql1))
 					header('location: /ludify/success.php');

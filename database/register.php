@@ -6,9 +6,7 @@
 require "connection.php";
 session_start();
 
-$_SESSION['first_name'] = $_POST['fname'];
-$_SESSION['last_name'] = $_POST['lname'];
-$_SESSION['email'] = $_POST['email'];
+$date = date('Y-m-d H:i:s');
 
 $firstname = mysqli_real_escape_string($conn,$_POST['fname']);
 $lastname = mysqli_real_escape_string($conn,$_POST['lname']);
@@ -44,7 +42,6 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $path_to_upload)){
 		$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', 'asdfas')";
 		
 		$result = mysqli_query($conn,$query);
-
 		if($result)
 		{
 			/*$_SESSION['active'] = 0; // 0 until the user verifies the account
@@ -63,8 +60,15 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $path_to_upload)){
 			$result = mysqli_query($conn,"select user_id from  users where username='$username");
 			$row= mysqli_fetch_assoc($result);
 			$_SESSION['user_id'] = $row['user_id'];
-
-			header("location:success.php");
+//FOR NOTIFICATION
+			$query = "INSERT INTO NOTIFICATION('user_id','last_logged_in') VALUES('$_SESSION['user_id']','$date')";
+			$sql = mysqli_query($conn,$query);
+			if($sql){
+				header("location:success.php");
+			}
+			else{
+				echo mysqli_error($conn);
+			}
 		}
 		else
 		{
