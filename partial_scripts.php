@@ -26,7 +26,7 @@
 			}
 		});
 		if(!sessionStorage.index){
-			$("#1").removeClass("text-muted");
+			$("#sidebar-item-1").removeClass("text-muted");
 		}
 		var index = sessionStorage.getItem("index"); 
 		$('#' + index).removeClass('text-muted');
