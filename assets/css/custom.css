@@ -15,7 +15,11 @@ a{
 	/*border-bottom: 1px solid #ccc;*/
 }
 
- .form-control:focus{
+.control-label{
+	font-family: 'Merriweather Sans', sans-serif;
+}
+
+.form-control:focus{
 	box-shadow: none;
 	border-color:#6c757d;
 }

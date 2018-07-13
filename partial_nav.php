@@ -27,7 +27,7 @@
 			</form>
 			<ul class="nav navbar-nav ml-auto">
 				<li class="nav-item">
-					<a id="filter-toggle" class="nav-link" href="#"> filter options </a>
+					<a id="filter-toggle" class="nav-link" href="#" style="visibility:hidden;"> filter options </a>
 				</li>
 				<?php
 					session_start();

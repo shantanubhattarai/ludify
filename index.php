@@ -37,4 +37,9 @@
 	<script type="text/javascript">
 		sessionStorage.removeItem("index");
 	</script>
+
+	<script type="text/javascript">
+		document.getElementById("filter-toggle").style.visibility = "visible";
+	</script>
+
 <?php include 'partial_lower.php'; ?>

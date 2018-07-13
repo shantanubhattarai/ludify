@@ -2,27 +2,25 @@
 
 <?php include 'partial_upper.php';?>
 
-
-<div class="card col-md-5">
+<div class="container col-md-6">
 	<form class="form" method="post" action="database/login.php">
-		<h2>Login</h2>
-
-		<div>
-			<label for="email">E-mail address/Username:</label>
-			<input type="text" name="email" id="email" required />
+		<div class="form-group">
+			<label class = "control-label" for="email">E-mail address/Username:</label>
+			<input class = "form-control" type="text" name="email" id="email" required />
 		</div>
-		<div>
-			<label  for="password">Password:</label>  
-			<input type="password" name="password" id="password" required />
-		<div>
-		<div>
-			<button type="submit" name="submit" class=" btn btn-primary" > Login</button> <br>
+		<div class="form-group">
+			<label  class = "control-label"  for="password">Password:</label>  
+			<input class = "form-control"  type="password" name="password" id="password" required />
+		</div>
+
+		<div class="form-group">
+			<button  class=" btn btn-danger" type="submit" name="submit"> Login</button> <br>
 		</div>
 			
-		<div>				
+		<div class="form-group">				
 			 <a href="#" type="submit">Forgot Password?</a> <br>
-			Haven't registered yet then 
-			<a href="register.php">Sign up</a> here!
+			Don't have an account yet?
+			<a href="register.php"> Register here. </a>
 		</div>
 	</form>
 
