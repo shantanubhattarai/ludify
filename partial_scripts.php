@@ -1,8 +1,9 @@
 <script src = "assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src = "assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
-<script>
+<!-- Toggle Filter Options -->
 
+<script>
 	$(document).ready(function(){
 		$( "#filter-options" ).hide();
 	});
@@ -15,44 +16,19 @@
 	});
 </script>
 
+<!-- Active Sidebar Item -->
+
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#home").click(function(){
-			sessionStorage.setItem("index","1");
+		$("a").click(function(event) {
+			if($(this).hasClass('sidebar-item')){
+				sessionStorage.setItem("index",$(this).attr('id'));
+			}
 		});
-		$("#dashboard").click(function(){
-			sessionStorage.setItem("index","2");
-		});
-		$("#request").click(function(){
-			sessionStorage.setItem("index","3");
-		});
-		$("#about").click(function(){
-			sessionStorage.setItem("index","4");
-		});
-		$("#contact").click(function(){
-			sessionStorage.setItem("index","5");
-		});
-		
 		if(!sessionStorage.index){
-			$("#home").removeClass("text-muted");
+			$("#1").removeClass("text-muted");
 		}
 		var index = sessionStorage.getItem("index"); 
-		if(index==1){
-			$("#home").removeClass("text-muted");
-		}
-		else if(index==2){
-			$("#dashboard").removeClass("text-muted");
-		}
-		else if(index==3){
-			$("#request").removeClass("text-muted");
-		}
-		else if(index==4){
-			$("#about").removeClass("text-muted");
-		}
-		else if(index==5){
-			$("#contact").removeClass("text-muted");
-		}
-		});
-
-
+		$('#' + index).removeClass('text-muted');
+	});
 </script>

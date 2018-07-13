@@ -24,7 +24,7 @@
 			Haven't registered yet then 
 			<a href="register.php">Sign up</a> here!
 		</div>
- 	</form>
+	</form>
 
 		<?php 
 			 if(isset($_SESSION['login_message']) && $_SESSION['login_message'] != null){

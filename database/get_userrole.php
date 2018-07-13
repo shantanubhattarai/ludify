@@ -8,3 +8,4 @@ function GetUserRole($conn, $user_id){
 	return $row['role_id'];
 }
 ?>
+

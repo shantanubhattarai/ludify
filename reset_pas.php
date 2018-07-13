@@ -30,10 +30,10 @@
 		<div class="row">
 			 
 		<div class="collapse navbar-collapse" id="myNavbar">
-		 	<ul class="nav navbar-nav navbar-right">
-      			<li><a href="reg.php"><span class="glyphicon glyphicon-user"></span>&nbsp; Sign Up</a></li>
-      			<li> <a href="login.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a> </li>
-      			<li> <a href="about.php"><span class="fa fa-info-circle"></span>&nbsp;About Us</a> </li>
+			<ul class="nav navbar-nav navbar-right">
+			<li><a href="reg.php"><span class="glyphicon glyphicon-user"></span>&nbsp; Sign Up</a></li>
+			<li> <a href="login.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Login</a> </li>
+			<li> <a href="about.php"><span class="fa fa-info-circle"></span>&nbsp;About Us</a> </li>
 				<li> <a href="help.php"><span class="fa fa-question-circle"></span>&nbsp;Help</a> </li>
 				<li> <a href="contact.php"><span class="fa fa-phone-square"></span>&nbsp;Contact Us</a> </li>
 
@@ -63,21 +63,21 @@
 				<div class="panel-heading"><h1>Reset Password</h1></div>
 				<div class="panel-body">
 					<div class="form-group">
-              			<label  for="email">Type Code sent in link</label>
-              			<input type="text" class="form-control" name="code" id="code"  placeholder="Code"/ >
-                	</div>
+				<label  for="email">Type Code sent in link</label>
+				<input type="text" class="form-control" name="code" id="code"  placeholder="Code"/ >
+			</div>
 
 					<div class="form-group">
-              			<label  for="email">New Password:</label>
-              			<input type="password" class="form-control" name="password" id="pwd"  placeholder="New Password"/ minlength="8">
-                	</div>
-              		<div class="form-group ">
-              			<label for="password">Confirm New Password</label>
-              			<div>
-                  			<input type="password" class="form-control" name="number" id="number"  placeholder=" Conform New password" minlength="8" />
-               			</div>
-              		 </div>	
-              		 <button class="btn btn-primary" type="submit" id="button" ><span class="fa fa-check"></span>&nbsp;Save</button>		
+				<label  for="email">New Password:</label>
+				<input type="password" class="form-control" name="password" id="pwd"  placeholder="New Password"/ minlength="8">
+			</div>
+			<div class="form-group ">
+				<label for="password">Confirm New Password</label>
+				<div>
+					<input type="password" class="form-control" name="number" id="number"  placeholder=" Conform New password" minlength="8" />
+				</div>
+			 </div>	
+			 <button class="btn btn-primary" type="submit" id="button" ><span class="fa fa-check"></span>&nbsp;Save</button>		
 				</div>
 
 			</div>
@@ -92,17 +92,17 @@
 <div style="margin-top: 20%;"></div>
 
 <footer class="w3-center w3-padding-64" style=" background: #f8f8f8">
-  				<a href="index.php" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  			<div class="w3-xlarge w3-section">
-  					<h2 style="color: blue;text-align:center;">Follow us on</h2>
-    			<a href="https://www.facebook.com"><i class="fa fa-facebook-official w3-hover-opacity"></i>&nbsp;Facebook</a>
-               <a href="https://www.instagram.com"> <i class="fa fa-instagram w3-hover-opacity"></i>&nbsp;Instagram</a>
-                <a href="https://www.snapchat.com"><i class="fa fa-snapchat w3-hover-opacity"></i>&nbsp;Snapchat</a>
-                <a href="https://www.pinterest.com"><i class="fa fa-pinterest-p w3-hover-opacity">&nbsp;Pinterest</i></a>
-                <a href="https://www.twitter.com"><i class="fa fa-twitter w3-hover-opacity"></i>&nbsp;Twitter</a>
+				<a href="index.php" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+			<div class="w3-xlarge w3-section">
+					<h2 style="color: blue;text-align:center;">Follow us on</h2>
+			<a href="https://www.facebook.com"><i class="fa fa-facebook-official w3-hover-opacity"></i>&nbsp;Facebook</a>
+	       <a href="https://www.instagram.com"> <i class="fa fa-instagram w3-hover-opacity"></i>&nbsp;Instagram</a>
+		<a href="https://www.snapchat.com"><i class="fa fa-snapchat w3-hover-opacity"></i>&nbsp;Snapchat</a>
+		<a href="https://www.pinterest.com"><i class="fa fa-pinterest-p w3-hover-opacity">&nbsp;Pinterest</i></a>
+		<a href="https://www.twitter.com"><i class="fa fa-twitter w3-hover-opacity"></i>&nbsp;Twitter</a>
   
- 			</div>	
- 			   </br>
+			</div>	
+			   </br>
   
   
 		</footer>
