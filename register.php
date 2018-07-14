@@ -2,7 +2,7 @@
 
 <?php include 'partial_upper.php';?>
 
-<div class="container col-md-6">
+<div class="container col-md-4">
 	<form class="form" method="post" action="database/register.php" enctype="multipart/form-data">
 		
 		<div class="form-group">

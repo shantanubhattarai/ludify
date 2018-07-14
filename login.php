@@ -2,7 +2,7 @@
 
 <?php include 'partial_upper.php';?>
 
-<div class="container col-md-6">
+<div class="container col-md-4">
 	<form class="form" method="post" action="database/login.php">
 		<div class="form-group">
 			<label class = "control-label" for="email">E-mail address/Username:</label>
