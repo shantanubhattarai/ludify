@@ -30,7 +30,6 @@
 					<a id="filter-toggle" class="nav-link" href="#" style="visibility:hidden;"> filter options </a>
 				</li>
 				<?php
-					session_start();
 					if(!isset($_SESSION['user_id'])){
 				?>
 				<li class="nav-item">
@@ -40,7 +39,6 @@
 					}
 					else{
 				?>
-					<a class="nav-link" href="profile.php"> Profile</a>
 					<a class="nav-link" href="database/logout.php"> LogOut</a>
 				<?php }
 				?>

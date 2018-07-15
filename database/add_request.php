@@ -13,7 +13,8 @@
 			header('location: /ludify/index.php');
 		}
 		else{
-			echo mysqli_error($conn);
+			$_SESSION['error']="Problem in submitting request try again";
+			header("Location: {$_SERVER['HTTP_REFERER']}");
 		}
 	}
 ?>

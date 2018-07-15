@@ -14,7 +14,8 @@
 			header("Location: {$_SERVER['HTTP_REFERER']}");
 		}
 		else{
-			echo mysqli_error($conn);
+			$_SESSION['error']="Problem in submitting comment try again";
+			header("Location: {$_SERVER['HTTP_REFERER']}");
 		}
 
 	}

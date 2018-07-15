@@ -6,10 +6,10 @@
 	<form class="form" method="post" action="database/register.php" enctype="multipart/form-data">
 		
 		<div class="form-group">
-			<label class="control-label">Profile picture:</label>
-			<div id="profile_image">display image here</div>
-			<input type="file" name="profile_image" id="profile_image">
-		</div>
+  			<img id="ProfImage" src="media/default.png" alt="your image" width="100" height="100" class="rounded-circle" /></br>
+		  	<label class="control-label" for="image"> Select your image</label>
+			<input type="file" name="image" onchange="document.getElementById('ProfImage').src = window.URL.createObjectURL(this.files[0])">
+  		</div>
 		
 		<div class = "form-group">
 			<label for="name" class="control-label" >First Name:</label>
@@ -58,7 +58,7 @@
 		</div>
 		 
 		<div class="form-group">
-			<button class="btn btn-danger" type="submit"  >Sign up</button>
+			<button class="btn btn-danger" type="submit"  name="submit">Sign up</button>
 		</div>
 								
 	</form>

@@ -27,7 +27,7 @@
 		if(move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)){
 			$file_path = $target_file;
 			echo $file_path;
-			$query = "insert into files(link,no_of_downloads,file_name) values('$file_path','0','$target_file')";
+			$query = "insert into files(link,no_of_downloads,file_name) values('$file_path','0','$file_path')";
 			$sql = mysqli_query($conn,$query);
 			if($sql){
 				$query = "select file_id from files where link = '$file_path'";
@@ -51,7 +51,8 @@
 			}
 		}
 		else{
-			echo "File upload is unsuccessfull";
+			$_SESSION['error']="Problem in uploading files";
+			header("Location: {$_SERVER['HTTP_REFERER']}");
 		}
 	}
 ?>
