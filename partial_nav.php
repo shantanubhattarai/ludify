@@ -17,12 +17,12 @@
 				<div class="form-group mx-3">
 					<label for="order" class="control-label">sort by:</label>
 					<select class="form-control custom-select" name="order">
-						<option>name</option>
-						<option>upload date</option>
+						<option value="article_title">name</option>
+						<option value="date_of_upload">upload date</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-outline-danger">apply</button>
+					<button type="submit" class="btn btn-outline-danger" onclick="reload(true);">apply</button>
 				</div>
 			</form>
 			<ul class="nav navbar-nav ml-auto">

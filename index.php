@@ -5,13 +5,22 @@
 
 	<div class="col-md-9 container main-content">
 		<?php
+// FOR PAGE
 			$items_per_page = 4;
 			include 'include\pagination.php';
+//FOR SORTING
+			if(isset($_GET['order'])){
+				$sortby = "ORDER BY ".$_GET['order'];
+			}
+			else{
+				$sortby = " ORDER BY date_of_upload ";
+			}
+			
 			$query = "select * from articles";
 			$result = mysqli_query($conn,$query);
 			$total_items = mysqli_num_rows($result); 
-			$result = mysqli_query( $conn , " SELECT * FROM articles ORDER BY date_of_upload DESC LIMIT $start, $items_per_page");
-			
+			$result = mysqli_query( $conn , " SELECT * FROM articles ".$sortby." DESC LIMIT $start, $items_per_page");
+			if($result)
 			while($row = mysqli_fetch_assoc($result)){
 		?>
 		
