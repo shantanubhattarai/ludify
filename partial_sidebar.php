@@ -6,8 +6,9 @@
 			<a href="request.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-3">Requests
 				<?php include 'notification.php'?>
 			</a>
-			<a href="#" class="sidebar-item list-group-item text-muted" id="sidebar-item-4">About</a>
-			<a href="#" class="sidebar-item list-group-item text-muted" id="sidebar-item-5">Contact</a>
+			<a href="notice.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-4">Notices</a>
+			<a href="#" class="sidebar-item list-group-item text-muted" id="sidebar-item-5">About</a>
+			<a href="feedback.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-6">Send Feedback</a>
 		</ul>
 	</div>
 </div>
