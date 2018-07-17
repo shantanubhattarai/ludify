@@ -1,4 +1,5 @@
 <?php
+	require 'connection.php';
 	if(isset($_SESSION['user_id'])){
 		$user_id = $_SESSION['user_id'];
 		$sql = "SELECT COUNT(notification.notification_id) AS count FROM notification INNER JOIN requests ON notification.last_logged_in 

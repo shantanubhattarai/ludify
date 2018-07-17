@@ -1,4 +1,5 @@
-<h6 class="card-header">Add notice</h6>
+<h5 class="card-header profile">Add notice</h5>
+<br>
 
 <div class="card-text">
 	<form class="form" method="post" action="\ludify\database\add_notice.php">

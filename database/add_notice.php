@@ -8,7 +8,7 @@
 		$title = $_POST['title'];
 		$body = $_POST['body'];
 		
-		$sql = "INSERT INTO notices (title,body) VALUES ('$title','$body')";
+		$sql = "INSERT INTO notices (notice_title,notice_body) VALUES ('$title','$body')";
 	    $result = mysqli_query($conn,$sql);
 	    
 	    $_SESSION['info'] = "Notice Added";

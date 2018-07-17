@@ -20,8 +20,14 @@
 			if($password == $row['password'])
 			{
 				$_SESSION['user_id'] = $row['user_id'];
-				
-				header("location:../index.php");
+				$query2 = "UPDATE users SET count=count+1 where user_id = ".$row['user_id'];
+				$res2 = mysqli_query($conn,$query2);
+				if($res2){
+					header("location:../index.php");
+				}
+				else{
+					echo mysqli_error($conn);
+				}
 			}
 			else
 			{

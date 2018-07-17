@@ -39,8 +39,6 @@
 									?>
 									<br>
 									<span class="text"><?=$total?></span> <br>									
-									
-									<span class="text-muted">Put graph here</span>
 								</div>
 							</a>
 						</div>
@@ -53,13 +51,12 @@
 									<strong>Total Visits</strong>
 									<br>
 									<?php 
-										$sql = "SELECT * FROM counts where id=1";
+										$sql = "SELECT sum(count) as visits FROM users where user_id!=3";
 										$result = mysqli_query($conn,$sql);
 										$row = mysqli_fetch_assoc($result);
 										$count = $row['visits'];
 									?>
 									<span class="text"><?=$count?></span> <br>
-									<span class="text-muted">Put graph here</span>
 								</div>
 							</a>
 						</div>
@@ -71,7 +68,13 @@
 								<div class="card-body">
 									<strong>Feedback</strong>
 									<br>
-									<span class="text-muted">Put graph here</span>
+									<?php
+										$sql = "SELECT count(feedback_id)	 as total FROM feedback";
+										$result = mysqli_query($conn,$sql);
+										$row = mysqli_fetch_assoc($result);
+										$count = $row['total'];
+									?>
+									<span class="text"><?=$count?></span> <br>
 								</div>
 							</a>
 						</div>

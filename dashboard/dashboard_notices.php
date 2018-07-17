@@ -17,8 +17,8 @@
 		?>
 		<tr>
 			<td><?= $sno ?></td>
-			<td><?= $row['title'] ?></td>
-			<td class="text-truncate" style="max-width: 1px;"><a class="" href="?type=notice&notice=<?=$row['id']?>"><?= $row['body'] ?></a></td>
+			<td><?= $row['notice_title'] ?></td>
+			<td class="text-truncate" style="max-width: 1px;"><a class="" href="?type=notice&notice=<?=$row['notice_id']?>"><?= $row['notice_body'] ?></a></td>
 		</tr>
 		<?php 
 				$sno++; 

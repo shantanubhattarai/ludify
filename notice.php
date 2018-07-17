@@ -1,7 +1,6 @@
 <?php 
 	$title = "Notices and FAQs";
 ?>
-<?php include'database/maintenance_check.php'; ?>
 <?php include'partial_upper.php'; ?>
 <?php include'partial_sidebar.php'; ?>
 <div class="col-md-9 container main-content">
@@ -16,13 +15,13 @@
 ?>
 		<a class="list-group-item" href="/ludify/previewnotice.php?count=<?=$row['id']?>">
 			<?= $sno;?>.&nbsp;
-			<?= $row['title'];?>
+			<?= $row['notice_title'];?>
 			
 			<span class="pull-right">
 				<?= $row['updated_at'];?>
 				
 					<?php
-						$cookieIndex = $check.$row['id'];
+						$cookieIndex = $check.$row['notice_id'];
 						if(!isset($_COOKIE[$cookieIndex])  || $_COOKIE[$cookieIndex]==0){
 							echo '<span class="label label-warning">Unread</span>';
 						}

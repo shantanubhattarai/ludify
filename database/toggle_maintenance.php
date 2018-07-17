@@ -5,10 +5,10 @@
 		$tgl_value = $_POST['toggle_maintenance'];
 		$sql = "UPDATE admin_settings SET maintenance=$tgl_value WHERE id = 1";
 		$result = mysqli_query($conn,$sql);
-		$_SESSION['error'] = "Settings saved";//Not error. should be message
+		$_SESSION['info'] = "Settings saved";
 		header('location:/ludify/dashboard_admin.php?type=settings');
 	}else{
-		$_SESSION['error'] = "Settings saved";//Not error. should be message
+		$_SESSION['info'] = "Settings saved";
 		header('location:/ludify/dashboard_admin.php?type=settings');
 	}
 

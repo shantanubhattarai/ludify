@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 	}
 	$image_path = '/ludify/'.$image_path;
 
-	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', '$image_path')";
+	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar,count) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', '$image_path','1')";
 	$result = mysqli_query($conn,$query);
 	if($result){
 		$result = mysqli_query($conn,"select user_id from  users where username='$username'");

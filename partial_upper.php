@@ -14,7 +14,16 @@
 				.$_SESSION['error'].
 				"</div>";
 			$_SESSION['error']="";
-		}
+			}
+			if(isset($_SESSION['info']) && $_SESSION['info']!=""){
+			echo "<div class='alert alert-success alert-dismissible'>
+				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				<span aria-hidden='true'><i class='material-icons'>clear</i></span>
+				</button>"
+				.$_SESSION['info'].
+				"</div>";
+			$_SESSION['info']="";
+			}
 		?>
 <?php include'partial_nav.php'; ?>
 <div class="container">

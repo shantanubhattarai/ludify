@@ -39,6 +39,10 @@ Code clean
 
 2018-7-16<Srishan>
 Admin dashboard? Notice and Feedback system but no admin login system.
-also added Maintenance mode(Not maintainance mode)
+also added Maintenance mode
 
+2018-7-17<Makai>
+Admin login system and admin dashboard fully working
+updated database
+fixed siri's careless code copying
 

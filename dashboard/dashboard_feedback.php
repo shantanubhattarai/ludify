@@ -18,19 +18,19 @@
 		?>
 		<tr>
 			<td><?= $sno ?></td>
-			<td><?= $row['title'] ?></td>
+			<td><?= $row['feedback_title'] ?></td>
 			<td class="text-truncate" style="max-width: 1px;">
 				<a href="#" data-toggle="modal" data-target="#exampleModal_<?=$sno?>">
-					<?= $row['body'] ?>
+					<?= $row['feedback_body'] ?>
 				</a>
 				<div class="modal fade" id="exampleModal_<?=$sno?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				  	<div class="modal-dialog" role="document">
 				    	<div class="modal-content">
 				      		<div class="modal-header">
-				        		<h5 class="modal-title" id="exampleModalLabel<?=$sno?>"><?= $row['title'] ?></h5>
+				        		<h5 class="modal-title" id="exampleModalLabel<?=$sno?>"><?= $row['feedback_title'] ?></h5>
 				      		</div>
 				      		<div class="modal-body">
-				        		<?= $row['body'] ?>
+				        		<?= $row['feedback_body'] ?>
 				      		</div>
 				      		<div class="modal-footer">
 				        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

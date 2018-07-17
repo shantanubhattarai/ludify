@@ -1,5 +1,6 @@
 <?php $title = "FILE UPLOAD" ;?>
 <?php include 'partial_upper.php';?>
+<?php include'partial_sidebar.php'; ?>
 
 		<div class="col-md-9 container main-content">
 			<form action="database\file_upload.php" method ="post" enctype="multipart/form-data">
