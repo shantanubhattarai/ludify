@@ -10,18 +10,28 @@
 			include 'include\pagination.php';
 //FOR SORTING
 			if(isset($_GET['order'])){
-				$sortby = "ORDER BY ".$_GET['order'];
+				$sortby = " ORDER BY ".$_GET['order'];
 			}
 			else{
 				$sortby = " ORDER BY date_of_upload ";
+			}
+
+			if(isset($_GET['filter'])){
+				echo $_GET['filter'];
+				$condition = " WHERE article_category = ".$_GET['filter'];
+			}
+			else{
+				$condition = " ";
 			}
 			
 			$query = "select * from articles";
 			$result = mysqli_query($conn,$query);
 			$total_items = mysqli_num_rows($result); 
-			$result = mysqli_query( $conn , " SELECT * FROM articles ".$sortby." DESC LIMIT $start, $items_per_page");
+			$result = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." DESC LIMIT $start, $items_per_page");
 			if($result)
 			while($row = mysqli_fetch_assoc($result)){
+				$res = mysqli_query($conn , "SELECT category from article_categories WHERE category_id = ".$row['article_category']);
+				$row2 = mysqli_fetch_assoc($res);
 		?>
 		
 		<div class="card main-list">
@@ -33,7 +43,7 @@
 				<a href="#"> <?=GetUsername($conn,$row['author_id'])?> </a> on <?=date("d",strtotime($row['date_of_upload']))?> 
 				<a href="#"> <?=date("F",strtotime($row['date_of_upload']))?></a>, 
 				<a href="#"><?=date("Y",strtotime($row['date_of_upload']))?></a>
-				under <a href="#"><?=$row['article_category']?></a>
+				under <a href="#"><?=$row2['category']?></a>
 		</div>
 	</div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2018 at 08:03 PM
+-- Generation Time: Jul 18, 2018 at 07:51 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -69,7 +69,8 @@ INSERT INTO `articles` (`article_id`, `article_title`, `article_body`, `file_id`
 (1006, 'Article 1', 'New article here', 6, 86, '1', '0000-00-00'),
 (1007, 'New one', 'Article 4 maybe', 11, 87, '2', '0000-00-00'),
 (1011, 'Title', 'body', 14, 88, '1', '0000-00-00'),
-(1012, 'asdfkjh', 'asdfasdf', 16, 88, '3', '0000-00-00');
+(1012, 'asdfkjh', 'asdfasdf', 16, 88, '3', '0000-00-00'),
+(1013, 'File utility', 'this is a file utility..', 17, 90, '1', '2018-07-18');
 
 -- --------------------------------------------------------
 
@@ -79,8 +80,18 @@ INSERT INTO `articles` (`article_id`, `article_title`, `article_body`, `file_id`
 
 CREATE TABLE `article_categories` (
   `category_id` int(11) NOT NULL,
-  `categoery` text
+  `category` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `article_categories`
+--
+
+INSERT INTO `article_categories` (`category_id`, `category`) VALUES
+(1, 'File Utilities'),
+(2, 'Folder Utilities'),
+(3, 'Customization'),
+(4, 'Miscellaneous');
 
 -- --------------------------------------------------------
 
@@ -146,14 +157,15 @@ CREATE TABLE `files` (
 
 INSERT INTO `files` (`file_id`, `link`, `no_of_downloads`, `file_name`) VALUES
 (1, '../files/06.23.18/Dumpper v.91.2.rar', 0, 'Dumper.rar'),
-(2, '../files/06.23.18/Capture.PNG', 0, 'Caputre.png'),
+(2, '../files/06.23.18/Capture.PNG', 1, 'Caputre.png'),
 (6, '../files/1006/Assignment3.docx', 0, 'Assignment3.docx'),
 (11, '../files/1007/User.docx', 0, 'User.docx'),
 (12, '../files/1008/Sample.xml', 0, 'sapmle.xml'),
 (13, '../files/1008/Sample.xml', 0, 'sample.xml'),
 (14, '../files/1008/sample.png', 0, 'sample.png'),
 (15, '../files/1008/sample.png', 0, 'sample.png'),
-(16, '../files/1012/citizenship.jpg', 0, 'citizenship.jpg');
+(16, '../files/1012/citizenship.jpg', 0, 'citizenship.jpg'),
+(17, '../files/1013/newspub.sql', 0, '../files/1013/newspub.sql');
 
 -- --------------------------------------------------------
 
@@ -195,7 +207,7 @@ CREATE TABLE `notification` (
 INSERT INTO `notification` (`user_id`, `notification_id`, `last_logged_in`) VALUES
 (89, 1, '2018-07-11 22:29:00'),
 (88, 2, '2018-07-15 09:13:54'),
-(90, 3, '2018-07-17 19:24:21');
+(90, 3, '2018-07-18 19:23:16');
 
 -- --------------------------------------------------------
 
@@ -253,9 +265,9 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, 
 (84, 'sudip', 'Neupane', 'shibasudipyoddha@gmail.com', '$2y$10$J/ekEhaTAYCuSzu5qEUFGOFwnM08e984XPBPOZawKvoWIM.SJwBvK', 'e0cf1f47118daebc5b16269099ad7347', 1, 1, '', 'sudip', '2018-06-27', 'male', 13254651, NULL, 0),
 (86, 'sdf', 'sdf', 'sdfsd', '$2y$10$1cVhldjdNh9nnv3Cq5StfuyNK70ujMe0BszNCpp2IwzbwyZGZyc92', 'a9a6653e48976138166de32772b1bf40', 0, 0, '', 'sdf', '2018-06-25', 'male', 0, NULL, 0),
 (87, 'sudip', 'Neupane', 'sudipssy@yahoo0.com', '$2y$10$vTF2mwoccfXoEX3iG0k/COkcN9S98GETiSLJztmhXxHScaXaXP33y', '15de21c670ae7c3f6f3f1f37029303c9', 0, 0, '', 'ssya', '2018-06-26', '', 9841410162, NULL, 0),
-(88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, '/ludify//media/IMG_20180407_061242.jpg', 'ram', '0000-00-00', '', 0, 2, 1),
-(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, '', 'hari', '2000-01-01', 'male', 98765431, 3, 0),
-(90, 'Divyaswor', 'Makai ', 'div@example.com', 'e10adc3949ba59abbe56e057f20f883e', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0, '/ludify//media/citizenship.jpg', 'makai', '2000-01-01', 'male', 9860555555, 1, 6);
+(88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, '/ludify//media/IMG_20180407_061242.jpg', 'ram', '0000-00-00', '', 0, 2, 5),
+(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, '', 'hari', '2000-01-01', 'male', 98765431, 3, 5),
+(90, 'Divyaswor', 'Makai ', 'div@example.com', 'e10adc3949ba59abbe56e057f20f883e', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0, '/ludify//media/citizenship.jpg', 'makai', '2000-01-01', 'male', 9860555555, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -351,13 +363,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1013;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1014;
 
 --
 -- AUTO_INCREMENT for table `article_categories`
 --
 ALTER TABLE `article_categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -375,7 +387,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notification`

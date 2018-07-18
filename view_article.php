@@ -25,11 +25,14 @@
 					<form class = "form" action = "database/download_file.php" method="post">
 						<div class="form-group">
 							<input type="text" name="link" value=<?= $link ?> hidden>
+							<input type="text" name="file_id" value=<?= $row['file_id'] ?> hidden>
 							<br>
 							<input class="btn btn-danger" value="Download" type="submit" name="submit">
-							file: <?= $file_name ?>
+							File: <?= $file_name ?>
 						</div>	
 					</form>
+					<br>
+					No. of total Downloads: <?=$row2['no_of_downloads']?>
 				</div>
 			
 				<?php 

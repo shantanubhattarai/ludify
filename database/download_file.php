@@ -1,11 +1,11 @@
 <?php
 	
+require 'connection.php';
+
 if(isset($_POST['submit'])){
 	$link = $_POST['link'];
-	echo "ASDF";
-	echo $link;
+	$file_id = $_POST['file_id'];
 	if (!is_dir($link)) {
-		echo "ASDF";
 	    header('Content-Description: File Transfer');
 	    header('Content-Type: application/octet-stream');
 	    header('Content-Disposition: attachment; filename="'.basename($link).'"');
@@ -14,7 +14,13 @@ if(isset($_POST['submit'])){
 	    header('Pragma: public');
 	    header('Content-Length: ' . filesize($link));
 	    readfile($link);
-	    exit;
+	    $res = mysqli_query($conn,"UPDATE files SET no_of_downloads = no_of_downloads + 1 where file_id = '$file_id'");
+		if($res){
+	    	exit;
+	    }
+	    else{
+	    	echo mysqli_error($conn);
+	    }
 	}
 }
 ?>

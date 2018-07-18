@@ -17,16 +17,19 @@
 		else
 		{
 			$row = mysqli_fetch_assoc($result);
+			$role_id = $row['role_id'];
+			echo $role_id;
 			if($password == $row['password'])
 			{
 				$_SESSION['user_id'] = $row['user_id'];
+				echo $row['user_id'];
 				$query2 = "UPDATE users SET count=count+1 where user_id = ".$row['user_id'];
 				$res2 = mysqli_query($conn,$query2);
-				if($res2){
-					header("location:../index.php");
+				if($res2 && $role_id!=3){
+					header("location:../index.php");					
 				}
 				else{
-					echo mysqli_error($conn);
+					header("location:../dashboard_admin.php");
 				}
 			}
 			else

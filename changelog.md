@@ -46,3 +46,5 @@ Admin login system and admin dashboard fully working
 updated database
 fixed siri's careless code copying
 
+2018-7-18<Makai>
+Filter options fixed and improved login system

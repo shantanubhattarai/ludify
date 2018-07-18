@@ -1,4 +1,6 @@
 <?php include'database/maintenance_check.php'; ?>
+<?php include'database/get_userrole.php'; ?>
+
 <div class="col-md-2 container">
 	<div class="card sidebar sidebar-left">
 		<ul class="list-group-flush" style="padding:0; margin-bottom: 0;">
@@ -11,14 +13,14 @@
 			<a href="#" class="sidebar-item list-group-item text-muted" id="sidebar-item-5">About</a>
 		<?php
 //FOR DEVELOPER
-			if(isset($_SESSION['user_id'])&& $_SESSION['user_id']!="2"){
+			if(isset($_SESSION['user_id'])&& GetUserRole($conn,($_SESSION['user_id']))=="1"){
 		?>
 			<a href="file_upload.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-6">Article Upload</a>
 
 		<?php
 			}
 //FOR USER
-			else if(isset($_SESSION['user_id'])&& $_SESSION['user_id']!="1"){
+			else if(isset($_SESSION['user_id'])&& GetUserRole($conn,($_SESSION['user_id']))=="2"){
 		?>
 			<a href="feedback.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-6">Send Feedback</a>
 

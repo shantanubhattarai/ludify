@@ -7,10 +7,16 @@
 			<div class="form-group">
 				<label><b>Type of Article</b></label> <br>
 					<select name="category_id">
-						<option value="1">Category 1</option>
-						<option value="2">Category 2</option>
-						<option value="3">category 3</option>
-						<option value="4">category 4</option>
+				<?php
+					$res = mysqli_query($conn,"SELECT * from article_categories");
+					while($row =mysqli_fetch_assoc($res)){
+						$id = $row['category_id'];
+				?>
+						<option value="<?=$id?>"><?=$row['category']?></option>
+
+				<?php
+					}
+				?>
 					</select><br>
 				
 					<label><b>Article Title </b></label><br>
