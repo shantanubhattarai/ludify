@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2018 at 07:51 PM
+-- Generation Time: Jul 19, 2018 at 08:40 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -119,6 +119,19 @@ INSERT INTO `comments` (`comment_id`, `comment_body`, `comment_date`, `comment_u
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `developer_request`
+--
+
+CREATE TABLE `developer_request` (
+  `request_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `date_of_request` date DEFAULT NULL,
+  `qualification` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `feedback`
 --
 
@@ -206,8 +219,29 @@ CREATE TABLE `notification` (
 
 INSERT INTO `notification` (`user_id`, `notification_id`, `last_logged_in`) VALUES
 (89, 1, '2018-07-11 22:29:00'),
-(88, 2, '2018-07-15 09:13:54'),
+(88, 2, '2018-07-19 20:38:56'),
 (90, 3, '2018-07-18 19:23:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `user_id` int(11) DEFAULT NULL,
+  `request_id` int(11) DEFAULT NULL,
+  `link` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`user_id`, `request_id`, `link`) VALUES
+(88, 5, 'a link'),
+(88, 5, 'two links'),
+(88, 5, 'three link');
 
 -- --------------------------------------------------------
 
@@ -264,10 +298,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `hash`, `active`, `loggedin`, `avatar`, `username`, `dob`, `gender`, `contact`, `role_id`, `count`) VALUES
 (84, 'sudip', 'Neupane', 'shibasudipyoddha@gmail.com', '$2y$10$J/ekEhaTAYCuSzu5qEUFGOFwnM08e984XPBPOZawKvoWIM.SJwBvK', 'e0cf1f47118daebc5b16269099ad7347', 1, 1, '', 'sudip', '2018-06-27', 'male', 13254651, NULL, 0),
 (86, 'sdf', 'sdf', 'sdfsd', '$2y$10$1cVhldjdNh9nnv3Cq5StfuyNK70ujMe0BszNCpp2IwzbwyZGZyc92', 'a9a6653e48976138166de32772b1bf40', 0, 0, '', 'sdf', '2018-06-25', 'male', 0, NULL, 0),
-(87, 'sudip', 'Neupane', 'sudipssy@yahoo0.com', '$2y$10$vTF2mwoccfXoEX3iG0k/COkcN9S98GETiSLJztmhXxHScaXaXP33y', '15de21c670ae7c3f6f3f1f37029303c9', 0, 0, '', 'ssya', '2018-06-26', '', 9841410162, NULL, 0),
-(88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, '/ludify//media/IMG_20180407_061242.jpg', 'ram', '0000-00-00', '', 0, 2, 5),
-(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, '', 'hari', '2000-01-01', 'male', 98765431, 3, 5),
-(90, 'Divyaswor', 'Makai ', 'div@example.com', 'e10adc3949ba59abbe56e057f20f883e', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0, '/ludify//media/citizenship.jpg', 'makai', '2000-01-01', 'male', 9860555555, 1, 8);
+(87, 'sudip', 'Neupane', 'sudipssy@yahoo0.com', 'e10adc3949ba59abbe56e057f20f883e', '15de21c670ae7c3f6f3f1f37029303c9', 0, 0, '', 'ssya', '2018-06-26', '', 9841410162, NULL, 0),
+(88, 'ram', 'ram', 'ram@example.com', 'e10adc3949ba59abbe56e057f20f883e', '6974ce5ac660610b44d9b9fed0ff9548', 1, 0, '/ludify//media/IMG_20180407_061242.jpg', 'ram', '0000-00-00', '', 0, 2, 8),
+(89, 'hari', 'hari', 'hari@example.com', 'e10adc3949ba59abbe56e057f20f883e', '8b6dd7db9af49e67306feb59a8bdc52c', 0, 0, '', 'hari', '2000-01-01', 'male', 98765431, 3, 7),
+(90, 'Divyaswor', 'Makai ', 'div@example.com', 'e10adc3949ba59abbe56e057f20f883e', 'c4ca4238a0b923820dcc509a6f75849b', 0, 0, '/ludify//media/citizenship.jpg', 'makai', '2000-01-01', 'male', 9860555555, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -314,6 +348,13 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`),
   ADD KEY `article_id` (`article_id`),
   ADD KEY `comment_user_id` (`comment_user_id`);
+
+--
+-- Indexes for table `developer_request`
+--
+ALTER TABLE `developer_request`
+  ADD PRIMARY KEY (`request_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `feedback`
@@ -378,6 +419,12 @@ ALTER TABLE `comments`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `developer_request`
+--
+ALTER TABLE `developer_request`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -424,6 +471,12 @@ ALTER TABLE `articles`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`comment_user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `developer_request`
+--
+ALTER TABLE `developer_request`
+  ADD CONSTRAINT `developer_request_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `feedback`

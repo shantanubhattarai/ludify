@@ -11,6 +11,7 @@
 			<a class="list-group-item" href="dashboard_admin.php">Dashboard</a>
 			<a class="list-group-item" href="?type=notices">Notices</a>
 			<a class="list-group-item" href="?type=feedback">Feedback</a>
+			<a class="list-group-item" href="?type=developer_request">Developer Request</a>
 			<a class="list-group-item" href="?type=settings">Settings</a>
 		</ul>
 	</div>

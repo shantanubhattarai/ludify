@@ -1,5 +1,4 @@
 <?php include'database/maintenance_check.php'; ?>
-<?php include'database/get_userrole.php'; ?>
 
 <div class="col-md-2 container">
 	<div class="card sidebar sidebar-left">
@@ -23,7 +22,7 @@
 			else if(isset($_SESSION['user_id'])&& GetUserRole($conn,($_SESSION['user_id']))=="2"){
 		?>
 			<a href="feedback.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-6">Send Feedback</a>
-
+			<a href="developer_request.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-7">Become a Developer</a>
 		<?php
 			}
 		?>

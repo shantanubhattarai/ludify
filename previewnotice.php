@@ -22,9 +22,5 @@
 		</div>
 	</div>
 </div>
-<?php
-	$check = "read".$_GET['count'];
-	$check_value =1;
-	setcookie($check,$check_value);
-?>
+
 <?php include'partial_lower.php'; ?>

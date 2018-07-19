@@ -19,13 +19,6 @@
 			
 			<span class="pull-right">
 				<?= $row['updated_at'];?>
-				
-					<?php
-						$cookieIndex = $check.$row['notice_id'];
-						if(!isset($_COOKIE[$cookieIndex])  || $_COOKIE[$cookieIndex]==0){
-							echo '<span class="label label-warning">Unread</span>';
-						}
-					?>
 			</span>
 		</a>
 

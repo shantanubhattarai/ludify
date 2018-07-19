@@ -48,3 +48,8 @@ fixed siri's careless code copying
 
 2018-7-18<Makai>
 Filter options fixed and improved login system
+
+2018-7-19<Makai>
+User to developer request and accept
+
+completed project

@@ -1,6 +1,5 @@
 <?php $title = "Request" ;?>
 <?php include 'partial_upper.php'; ?>
-<?php include 'database/get_username.php';?>
 <?php include'partial_sidebar.php'; ?>
 
 		<div class="col-md-9 container main-content">

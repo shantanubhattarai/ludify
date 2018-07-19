@@ -2,6 +2,9 @@
 <html>
 <?php include 'database/connection.php' ?>
 <?php include 'partial_head.php' ?>
+<?php include 'database/get_username.php';
+ include 'database/get_userrole.php';
+ ?>
 <body>
 <div class="container col-sm-12 col-md-12">
 	<?php

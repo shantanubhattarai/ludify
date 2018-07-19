@@ -1,6 +1,5 @@
 <?php $title = "Index" ;?>
 <?php include 'partial_upper.php'; ?>
-<?php include 'database/get_username.php'; ?>
 <?php include 'partial_sidebar.php'; ?>
 
 	<div class="col-md-9 container main-content">
@@ -17,17 +16,13 @@
 			}
 
 			if(isset($_GET['filter'])){
-				echo $_GET['filter'];
 				$condition = " WHERE article_category = ".$_GET['filter'];
 			}
 			else{
 				$condition = " ";
 			}
-			
-			$query = "select * from articles";
-			$result = mysqli_query($conn,$query);
-			$total_items = mysqli_num_rows($result); 
 			$result = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." DESC LIMIT $start, $items_per_page");
+			$total_items = mysqli_num_rows($result); 
 			if($result)
 			while($row = mysqli_fetch_assoc($result)){
 				$res = mysqli_query($conn , "SELECT category from article_categories WHERE category_id = ".$row['article_category']);
