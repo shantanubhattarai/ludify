@@ -3,7 +3,7 @@
 	$result = mysqli_query($conn,$sql);
 	$row = mysqli_fetch_assoc($result);
 ?>
-<a href="/dashboard_admin.php/?type=notices">
+<a href="/ludify/dashboard_admin.php?type=notices">
 	<button class="btn btn-success">
 		Back to Notices
 	</button>

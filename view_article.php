@@ -1,6 +1,5 @@
 <?php $title = "Index" ;?>
 <?php include 'partial_upper.php'; ?>
-<?php include 'database/get_username.php'; ?>
 
 <!-- TODO:include check for article id to redirect to list here -->
 <?php include'partial_sidebar.php'; ?>
@@ -34,7 +33,9 @@
 					<br>
 					No. of total Downloads: <?=$row2['no_of_downloads']?>
 				</div>
-			
+
+				<div class="card">
+					<ul class="list-group list-group-flush">
 				<?php 
 //COMMENT SECTION
 					$result  = mysqli_query($conn,"SELECT * FROM comments where article_id = '$id' order by comment_date desc");
@@ -43,15 +44,15 @@
 							$comment_id = $row['comment_id'];
 				?>
 
-				<div class="card border-0">
 							<?php 
-								echo "<b>".GetUsername($conn,$row['comment_user_id'])."</b><br>";
-							 	echo $row['comment_body'];
+								echo "<li class= 'list-group-item'><b>".GetUsername($conn,$row['comment_user_id'])."</b><br>";
+							 	echo $row['comment_body']."</li>";
 							?>
 						<?php
 						}
 					}
 				?>
+				</ul>
 				</div>
 				<?php 
 					if(isset($_SESSION['user_id'])){

@@ -12,7 +12,7 @@
 			if(isset($_SESSION['error']) && $_SESSION['error']!=""){
 			echo "<div class='alert alert-danger alert-dismissible'>
 				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-				<span aria-hidden='true'><i class='material-icons'>clear</i></span>
+				<span aria-hidden='true'><i class='fa fa-close'></i></span>
 				</button>"
 				.$_SESSION['error'].
 				"</div>";
@@ -21,7 +21,7 @@
 			if(isset($_SESSION['info']) && $_SESSION['info']!=""){
 			echo "<div class='alert alert-success alert-dismissible'>
 				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-				<span aria-hidden='true'><i class='material-icons'>clear</i></span>
+				<span aria-hidden='true'><i class='fa fa-close'></i></span>
 				</button>"
 				.$_SESSION['info'].
 				"</div>";
