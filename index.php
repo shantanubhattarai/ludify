@@ -22,7 +22,8 @@
 				$condition = " ";
 			}
 			$result = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." DESC LIMIT $start, $items_per_page");
-			$total_items = mysqli_num_rows($result); 
+			$result1 = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." DESC");
+			$total_items = mysqli_num_rows($result1); 
 			if($result)
 			while($row = mysqli_fetch_assoc($result)){
 				$res = mysqli_query($conn , "SELECT category from article_categories WHERE category_id = ".$row['article_category']);

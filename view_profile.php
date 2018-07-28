@@ -55,9 +55,9 @@ include 'include\pagination.php';
 					<?php
 					$sno = 1;
 					$result = mysqli_query( $conn , " SELECT * FROM articles  WHERE author_id = '$author_id' ORDER BY date_of_upload  DESC LIMIT $start, $items_per_page ");
+					$result1 = mysqli_query( $conn , " SELECT * FROM articles WHERE author_id = '$author_id' ORDER BY date_of_upload  DESC");
+					$total_items = mysqli_num_rows($result1); 
 					if($result)
-					$total_items = mysqli_num_rows($result); 
-					
 					while($row = mysqli_fetch_assoc($result)){
 						$res = mysqli_query($conn , "SELECT category from article_categories WHERE category_id = ".$row['article_category']);
 						$row2 = mysqli_fetch_assoc($res);
@@ -66,10 +66,11 @@ include 'include\pagination.php';
 					<tr>
 						<td><?=$sno?></td>
 						<td><a href="view_article.php?article_id=<?=$article_id?>"><?=$row['article_title']?></a></td>
-						<td><?=$row['date_of_upload']?></td>
 						<td><?=$row2['category']?></td>
+						<td><?=$row['date_of_upload']?></td>
 					</tr>
 						<?php
+							$sno++;
 							}
 							include 'include\pagination_display.php';
 						?>
