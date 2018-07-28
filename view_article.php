@@ -5,6 +5,7 @@
 <?php include'partial_sidebar.php'; ?>
 		<div class="col-md-9 container main-content">
 			<?php
+				$user_id = $_SESSION['user_id'];
 				$id = $_GET['article_id'];
 				$query = "SELECT * FROM articles WHERE article_id = $id";
 				$result = mysqli_query($conn, $query);
@@ -20,7 +21,7 @@
 					<h3><?= $row['article_title']; ?> </h3>
 				</div>
 				<div class="card-body">
-					<?= $row['article_body']; ?>
+					<?= $row['article_body'] ?>
 					<form class = "form" action = "database/download_file.php" method="post">
 						<div class="form-group">
 							<input type="text" name="link" value=<?= $link ?> hidden>
@@ -32,6 +33,16 @@
 					</form>
 					<br>
 					No. of total Downloads: <?=$row2['no_of_downloads']?>
+						<?php
+							if($user_id ==$row['author_id']){
+						?>
+						<div class="row">
+							<a href="edit_article.php?article_id=<?=$id?>" class="btn btn-danger"> Edit Article</a> &nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="btn btn-danger" onclick="confirmation();"> Delete Article</button>
+						</div>
+						<?php
+							}
+						?>
 				</div>
 
 				<div class="card">
@@ -72,5 +83,17 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function confirmation(){
+		var text = confirm('Are you sure you want to delete this article?"');
+		if(text == true){
+			window.location.href="database/delete_article.php?article_id=<?=$id?>";
+		}
+		else{
+			this.cancel();
+		}
+	}
+</script>
 
 <?php include 'partial_lower.php'; ?>
