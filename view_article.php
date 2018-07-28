@@ -5,7 +5,10 @@
 <?php include'partial_sidebar.php'; ?>
 		<div class="col-md-9 container main-content">
 			<?php
-				$user_id = $_SESSION['user_id'];
+				if(isset($_SESSION['user_id'])){
+									$user_id = $_SESSION['user_id'];
+				}
+				
 				$id = $_GET['article_id'];
 				$query = "SELECT * FROM articles WHERE article_id = $id";
 				$result = mysqli_query($conn, $query);
@@ -34,7 +37,7 @@
 					<br>
 					No. of total Downloads: <?=$row2['no_of_downloads']?>
 						<?php
-							if($user_id ==$row['author_id']){
+							if(isset($user_id) && $user_id ==$row['author_id']){
 						?>
 						<div class="row">
 							<a href="edit_article.php?article_id=<?=$id?>" class="btn btn-danger"> Edit Article</a> &nbsp;&nbsp;&nbsp;&nbsp;

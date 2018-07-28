@@ -22,29 +22,31 @@ include 'include\pagination.php';
 
 			?>
 				<img class="rounded-circle " style="width:200px; height:200px;" src="<?=$profile_img?>"><br>
-				<table class="table table-borderless">
+				<table class="table table-borderless table-nonfluid">
 					<tr>
 						<td><label>Username</label></td>
-						<td><h4 class="profile"><?=$row['username']?></h4></td>
+						<td><?=$row['username']?></td>
 					</tr>
 					<tr>
 						<td><label>Name</label></td>
-						<td><h4 class="profile"><?=$row['first_name']." ".$row['last_name']?></h4></td>
+						<td><?=$row['first_name']." ".$row['last_name']?></td>
 					</tr>
 					<tr>
 						<td><label>Email</label></td>
-						<td><h4 class="profile"><?=$row['email']?></h4></td>
+						<td><?=$row['email']?></td>
 					</tr>
 					<tr>
 						<td><label>Type</label></td>
-						<td><h4 class="profile"><?=$row2['role_name']?></h4></td>
+						<td><?=$row2['role_name']?></td>
 					</tr>
 					<tr>
 						<td><label>Date of Birth</label></td>
-						<td><h4 class="profile"><?=$row['dob']?></h4></td>
+						<td><?=$row['dob']?></td>
 					</tr>
 				</table>
-
+				<div class="card main-list">
+					<div class="card-header">List of Articles</div>
+				</div>
 				<table class="table table-borderless">
 					<tr>
 						<th>S No.</th>

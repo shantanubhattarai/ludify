@@ -19,7 +19,7 @@
 		Setting #2
 	</div>
 
-	<button type="submit" class="btn btn-danger">
+	<button type="submit" class="btn btn-outline-danger">
 		Save settings
 	</button>
 	</form>

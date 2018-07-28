@@ -29,7 +29,12 @@
 			if(GETUSERROLE($conn,$user_id) == 1){	
 			
 		?>
+		<div class="card main-list">
+			<div class="card-header">
 				<a href="add_request.php">Make a Request Here!</a>		
+			</div>
+		</div>
+		
 		<?php
 			}
 		}
