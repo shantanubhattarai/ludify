@@ -27,6 +27,7 @@
 			while($row = mysqli_fetch_assoc($result)){
 				$res = mysqli_query($conn , "SELECT category from article_categories WHERE category_id = ".$row['article_category']);
 				$row2 = mysqli_fetch_assoc($res);
+				$author_id=$row['author_id'];
 		?>
 		
 		<div class="card main-list">
@@ -35,7 +36,7 @@
 			</div>
 			<div class="card-body card-meta text-muted">
 				Published by  
-				<a href="#"> <?=GetUsername($conn,$row['author_id'])?> </a> on <?=date("d",strtotime($row['date_of_upload']))?> 
+				<a href="view_profile.php?author_id=<?=$author_id?>"> <?=GetUsername($conn,$author_id)?> </a> on <?=date("d",strtotime($row['date_of_upload']))?> 
 				<a href="#"> <?=date("F",strtotime($row['date_of_upload']))?></a>, 
 				<a href="#"><?=date("Y",strtotime($row['date_of_upload']))?></a>
 				under <a href="#"><?=$row2['category']?></a>

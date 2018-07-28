@@ -19,7 +19,7 @@
 		Setting #2
 	</div>
 
-	<button type="submit" class="btn btn-success">
+	<button type="submit" class="btn btn-danger">
 		Save settings
 	</button>
 	</form>

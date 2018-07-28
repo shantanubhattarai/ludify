@@ -19,7 +19,7 @@
 		  			<textarea class="form-control" rows="8" name="body"></textarea>
 		  		</div>
 		  		<div class="form-group">
-					<button type="submit" class="btn btn-default" name="submit">Submit</button>
+					<button type="submit" class="btn btn-danger" name="submit">Submit</button>
 		  		</div>
 			</form>
 	  	</div>

@@ -15,7 +15,7 @@
 			<p><?=$row['notice_body'];?></p>
 		
 			<a href="notice.php">
-				<button class="btn btn-success">
+				<button class="btn btn-danger">
 					Back
 				</button>
 			</a>

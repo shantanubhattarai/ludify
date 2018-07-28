@@ -12,7 +12,7 @@
 			<textarea  rows="3" class="form-control" name="body"></textarea>
 		</div>
 		<div class="form-group">
-			<button type = "submit" class="btn btn-success" name="submit">Add</button>
+			<button type = "submit" class="btn btn-danger" name="submit">Add</button>
 		</div>
 	</form>
 </div>

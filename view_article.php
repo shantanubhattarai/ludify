@@ -42,12 +42,10 @@
 					if(mysqli_num_rows($result)>0){
 						while($row = mysqli_fetch_assoc($result)){
 							$comment_id = $row['comment_id'];
+							$comment_user_id =$row['comment_user_id'];
 				?>
-
-							<?php 
-								echo "<li class= 'list-group-item'><b>".GetUsername($conn,$row['comment_user_id'])."</b><br>";
-							 	echo $row['comment_body']."</li>";
-							?>
+								<li class= 'list-group-item'><a href="view_profile.php?author_id=<?=$comment_user_id?>"><b><?=GetUsername($conn,$comment_user_id)?></b></a><br>
+							 	 <?=$row['comment_body']?></li>
 						<?php
 						}
 					}

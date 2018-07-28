@@ -4,7 +4,7 @@
 	$row = mysqli_fetch_assoc($result);
 ?>
 <a href="/ludify/dashboard_admin.php?type=notices">
-	<button class="btn btn-success">
+	<button class="btn btn-danger">
 		Back to Notices
 	</button>
 </a>

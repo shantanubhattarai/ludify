@@ -27,7 +27,7 @@
 	</tbody>
 </table>
 <a href="?type=add_notice">
-<button id = "btn-floating" class="btn btn-success pull-right" style="position:fixed; bottom:10px; right: 10px;">
+<button id = "btn-floating" class="btn btn-danger pull-right" style="position:fixed; bottom:10px; right: 10px;">
 	Add New Notice
 </button>
 </a>
