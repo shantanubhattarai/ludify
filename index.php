@@ -16,7 +16,11 @@
 			}
 
 			if(isset($_GET['filter'])){
-				$condition = " WHERE article_category = ".$_GET['filter'];
+				if($_GET['filter']!=0){
+					$condition = " WHERE article_category = ".$_GET['filter'];	
+				}else{
+					$condition = " ";
+				}
 			}
 			else{
 				$condition = " ";
@@ -38,8 +42,7 @@
 			<div class="card-body card-meta text-muted">
 				Published by  
 				<a href="view_profile.php?author_id=<?=$author_id?>"> <?=GetUsername($conn,$author_id)?> </a> on <?=date("d",strtotime($row['date_of_upload']))?> 
-				<a href="#"> <?=date("F",strtotime($row['date_of_upload']))?></a>, 
-				<a href="#"><?=date("Y",strtotime($row['date_of_upload']))?></a>
+				 <?=date("F",strtotime($row['date_of_upload']))?>,  <?=date("Y",strtotime($row['date_of_upload']))?>
 				under <a href="#"><?=$row2['category']?></a>
 		</div>
 	</div>
