@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
 	$contact = mysqli_real_escape_string($conn,$_POST['contact']);
 	$dob = mysqli_real_escape_string($conn,$_POST['dob']);
 	$username = mysqli_real_escape_string($conn,$_POST['username']);
-	$active=$loggedin=0;
+	$active=$loggedin=1;
 
 	$target= '/media/';
 	$default_file = $target."default.png";
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 	}
 	$image_path = '/ludify/'.$image_path;
 
-	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar,count) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', '$image_path','1')";
+	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar,count,role_id) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', '$image_path','1','1')";
 	$result = mysqli_query($conn,$query);
 	if($result){
 		$result = mysqli_query($conn,"select user_id from  users where username='$username'");
