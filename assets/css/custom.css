@@ -6,8 +6,18 @@ label,select,option{
 	color: #6c757d;
 }
 
+.table-nonfluid {
+   width: auto !important;
+}
+
 a{
 	color:#D32F2F;
+}
+
+a:hover{
+	text-decoration: none;
+	color:#F44336;
+	opacity: 0.93;
 }
 
 .navbar .form-control{
@@ -44,9 +54,6 @@ a{
 	margin-bottom: 8px;
 }
 
-.main-content{
-	/*border-left:1px solid #eee;*/
-}
 
 .card {
 	border-radius: 0;
@@ -94,6 +101,11 @@ a{
 .card-header a{
 	color:#D32F2F;
 	font-family: 'Merriweather Sans', sans-serif;
+}
+
+.card-header a:hover{
+	color:#F44336;
+	opacity: 0.93;
 }
 
 .list-group .list-group-item{

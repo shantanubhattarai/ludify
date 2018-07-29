@@ -1,4 +1,10 @@
-<h6 class="card-header">Notices</h6>
+<div class="card-header">Notices
+<a href="?type=add_notice">
+<span class=" pull-right">
+	Add New Notice
+</span>
+</a>
+</div>
 
 <table class="table table-striped">
 	<thead>
@@ -26,8 +32,4 @@
 		?>
 	</tbody>
 </table>
-<a href="?type=add_notice">
-<button id = "btn-floating" class="btn btn-danger pull-right" style="position:fixed; bottom:10px; right: 10px;">
-	Add New Notice
-</button>
-</a>
+

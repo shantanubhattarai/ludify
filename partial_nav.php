@@ -29,11 +29,11 @@
 						<option value="date_of_upload">upload date</option>
 					</select>
 				</div>
-				<div class="form-group">
+				<div class="form-group mr-3">
 					<button type="submit" class="btn btn-outline-danger" onclick="reload(true);">apply</button>
 				</div>
 				<div class="form-group">
-					<a href="index.php" class="btn btn-outline-danger">Reset</a>
+					<a href="index.php" class="btn btn-outline-danger">reset</a>
 				</div>
 			</form>
 			<ul class="nav navbar-nav ml-auto">
@@ -50,7 +50,7 @@
 					}
 					else{
 				?>
-					<a class="nav-link" href="database/logout.php"> LogOut</a>
+					<a class="nav-link" href="database/logout.php"> log out</a>
 				<?php }
 				?>
 			</ul>

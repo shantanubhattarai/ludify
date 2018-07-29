@@ -13,10 +13,10 @@
 						<input type="text" name="project_no" id="project_no" hidden value="1">
 						<input type="text" name="project1" required>
 					</div> <br>
-					<input type="button"  class="btn btn-danger" onclick="addText();" value="Add another project" />
+					<input type="button"  class="btn btn-outline-danger" onclick="addText();" value="Add another project" />
 				</div>
 				<div class="form-group">
-					<input type="submit" name="submit" class="btn btn-danger" value="Submit">
+					<input type="submit" name="submit" class="btn btn-outline-danger" value="Submit">
 				</div>
 			</form>
 		</div>

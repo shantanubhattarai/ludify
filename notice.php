@@ -13,7 +13,7 @@
 	$sno=1;
 	while($row=mysqli_fetch_assoc($result)){
 ?>
-		<a class="list-group-item" href="/ludify/previewnotice.php?count=<?=$row['id']?>">
+		<a class="list-group-item" href="/ludify/previewnotice.php?count=<?=$row['notice_id']?>">
 			<?= $sno;?>.&nbsp;
 			<?= $row['notice_title'];?>
 			
