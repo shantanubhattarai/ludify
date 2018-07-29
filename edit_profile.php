@@ -38,6 +38,25 @@
 					</div>
 				</form>
 			</div>
+<<<<<<< HEAD
+			<div class="form-group">
+				<label for="name" class="control-label">Last Name</label>
+				<input class="form-control" name="last_name" value = "<?=$row['last_name']?>" required>
+			</div>
+			<div class="form-group">
+				<label for="name" class="control-label">Date of Birth</label>
+				<input class="form-control" name="dob" value = "<?=$row['dob']?>" required>
+			</div>
+			<div class="form-group">
+	  			<img id="blah" src="<?=$row['avatar']?>" alt="your image" width="100" height="100" class="rounded-circle" />
+			  	<label class="control-label" for="image"> Select your image</label>
+				<input type="file" name="image" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" >
+	  		</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-danger" name="submit">Update</button>
+			</div>
+		</form>
+=======
 		</div>
 		<div class="card">
 			<div class="card-header">Change password</div>
@@ -50,6 +69,7 @@
 						<input class="form-control" name="password_new1" type="password">
 						<label for="change_password" class="control-label">Re-enter New Password</label>
 						<input class="form-control" name="password_new2" type="password">
+>>>>>>> 9e4e7e00c76f033a3299d9de8290b0f5f11a471b
 
 					</div>
 					<div class ="form-group">
