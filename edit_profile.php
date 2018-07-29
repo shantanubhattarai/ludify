@@ -21,6 +21,10 @@
 				<input class="form-control" name="last_name" value = "<?=$row['last_name']?>" required>
 			</div>
 			<div class="form-group">
+				<label for="name" class="control-label">Date of Birth</label>
+				<input class="form-control" name="dob" value = "<?=$row['dob']?>" required>
+			</div>
+			<div class="form-group">
 	  			<img id="blah" src="<?=$row['avatar']?>" alt="your image" width="100" height="100" class="rounded-circle" />
 			  	<label class="control-label" for="image"> Select your image</label>
 				<input type="file" name="image" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" >

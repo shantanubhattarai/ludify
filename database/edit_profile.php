@@ -6,6 +6,7 @@
 	if(isset($_POST['submit'])){
 		$first_name=mysqli_real_escape_string($conn,$_POST['first_name']);
 		$last_name=mysqli_real_escape_string($conn,$_POST['last_name']);
+		$dob = mysqli_real_escape_string($conn,$_POST['dob']);
 
 		if($_FILES['image']['size']!=0){
 			$target= '/media/';
@@ -30,12 +31,12 @@
 
 			}
 			$image_path = '/ludify/'.$image_path;
-			$sql = "UPDATE users SET first_name='$first_name', last_name='$last_name', avatar='$image_path' WHERE user_id = $user_id";
+			$sql = "UPDATE users SET first_name='$first_name', last_name='$last_name', avatar='$image_path',dob='$dob' WHERE user_id = $user_id";
 
 		}
 		else{
 			echo "No photo taken";
-			$sql = "UPDATE users SET first_name='$first_name', last_name='$last_name' WHERE user_id = $user_id";
+			$sql = "UPDATE users SET first_name='$first_name', last_name='$last_name',dob='$dob' WHERE user_id = $user_id";
 		}
 
 		$result= mysqli_query($conn,$sql);

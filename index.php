@@ -30,7 +30,7 @@
 			$total_items = mysqli_num_rows($result1); 
 			if($result)
 			while($row = mysqli_fetch_assoc($result)){
-				$res = mysqli_query($conn , "SELECT category from article_categories WHERE category_id = ".$row['article_category']);
+				$res = mysqli_query($conn , "SELECT * from article_categories WHERE category_id = ".$row['article_category']);
 				$row2 = mysqli_fetch_assoc($res);
 				$author_id=$row['author_id'];
 		?>
@@ -43,7 +43,7 @@
 				Published by  
 				<a href="view_profile.php?author_id=<?=$author_id?>"> <?=GetUsername($conn,$author_id)?> </a> on <?=date("d",strtotime($row['date_of_upload']))?> 
 				 <?=date("F",strtotime($row['date_of_upload']))?>,  <?=date("Y",strtotime($row['date_of_upload']))?>
-				under <a href="#"><?=$row2['category']?></a>
+				under <a href="index.php?filter=<?=$row2['category_id']?>"><?=$row2['category']?></a>
 		</div>
 	</div>
 
