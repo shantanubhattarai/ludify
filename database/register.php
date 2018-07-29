@@ -3,7 +3,7 @@ require "connection.php";
 session_start();
 
 if(isset($_POST['submit'])){
-	$date = date('Y-m-d H:i:s');
+	$date = date('Y-m-d');
 
 	$firstname = mysqli_real_escape_string($conn,$_POST['fname']);
 	$lastname = mysqli_real_escape_string($conn,$_POST['lname']);
@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
 	$contact = mysqli_real_escape_string($conn,$_POST['contact']);
 	$dob = mysqli_real_escape_string($conn,$_POST['dob']);
 	$username = mysqli_real_escape_string($conn,$_POST['username']);
-	$active=$loggedin=0;
+	$active=$loggedin=1;
 
 	$target= '/media/';
 	$default_file = $target."default.png";
@@ -35,9 +35,10 @@ if(isset($_POST['submit'])){
 	}
 	$image_path = '/ludify/'.$image_path;
 
-	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar,count) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', '$image_path','1')";
+	$query = "INSERT INTO users (first_name, last_name, email, password, hash,active,loggedin,gender, contact, username, dob, avatar,count,role_id) VALUES ('$firstname', '$lastname', '$email', '$password', '$hash','$active','$loggedin', '$gender', '$contact', '$username', '$dob', '$image_path','1','1')";
 	$result = mysqli_query($conn,$query);
 	if($result){
+		echo "LINE41:";
 		$result = mysqli_query($conn,"select user_id from  users where username='$username'");
 		$row= mysqli_fetch_assoc($result);
 		$_SESSION['user_id'] = $row['user_id'];
@@ -45,8 +46,9 @@ if(isset($_POST['submit'])){
 //FOR NOTIFICATION
 		$query = "INSERT INTO NOTIFICATION(user_id,last_logged_in) VALUES('$user_id,'$date')";
 		$sql = mysqli_query($conn,$query);
+		echo "LINE48:";
 		if($sql){
-			header("location:verification.php");
+			header("location:/ludify/index.php");
 		}
 		else{
 			echo mysqli_error($conn);
@@ -54,24 +56,11 @@ if(isset($_POST['submit'])){
 	}
 	else
 	{
+		echo "LINE59:";
 		$_SESSION['message'] = "Registration failed";
 		echo mysqli_error($conn);
 	}	
 }
-
-/*$_SESSION['active'] = 0; // 0 until the user verifies the account
-			$_SESSION['logged_in'] = true;
-			$_SESSION['message'] = 'Conformation link has been sent to '.$email. ' Please verify your account before logging in.';
-
-			//send registration conformation link
-			$to = $email;
-			$subject = "Conformation email";
-			$message_body = 
-						'Hello '.$firstname.' !!
-						Please verify your account by clicking on the link below:
-
-						http://localhost/kinmail3/verify.php?email='.$email.'&hash='.$hash;
-			mail($to, $subject, $message_body);*/
 ?>
 
 			

@@ -9,7 +9,7 @@
 				<?php include 'database/notification.php'?>
 			</a>
 			<a href="notice.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-4">Notices</a>
-			<a href="#" class="sidebar-item list-group-item text-muted" id="sidebar-item-5">About</a>
+			<a href="about.php" class="sidebar-item list-group-item text-muted" id="sidebar-item-5">About</a>
 		<?php
 //FOR DEVELOPER
 			if(isset($_SESSION['user_id'])&& GetUserRole($conn,($_SESSION['user_id']))=="2"){

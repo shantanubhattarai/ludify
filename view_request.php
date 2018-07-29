@@ -42,11 +42,16 @@
 								}
 								else{
 //IF THE USER IS A DEVELOPER
+									$sql = "SELECT * FROM requests WHERE request_id = ".$id;
+									$res = mysqli_query($conn,$sql);
+									$row=mysqli_fetch_assoc($res);
+									if($row['accepted']!=1){
 						?>
 								<a class="btn btn-danger" href="database/accept_request.php">
 									Accept the request
 								</a>
 						<?php
+									}
 								}
 							}
 						?>

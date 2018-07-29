@@ -6,7 +6,7 @@
 		<div class="col-md-9 container main-content">
 			<?php
 				if(isset($_SESSION['user_id'])){
-									$user_id = $_SESSION['user_id'];
+					$user_id = $_SESSION['user_id'];
 				}
 				
 				$id = $_GET['article_id'];
