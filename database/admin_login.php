@@ -13,7 +13,7 @@
 
 		$row = mysqli_fetch_assoc($result);
 		if($row['role_id'] == 3) {
-				$_SESSION['user_id'] = $result['user_id'];
+				$_SESSION['user_id'] = $row['user_id'];
 				header('location:/ludify/dashboard_admin.php');
 		}
 		else{

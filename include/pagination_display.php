@@ -16,7 +16,7 @@ if ($items_per_page < $total_items)
 				}
 				else 
 				{ 
-					echo "<font size='4' color=blue>$l</font>";} //Current page is not displayed as link and given font color red
+					echo "<font size='4' color='#343a40'>$l</font>";} //Current page is not displayed as link and given font color red
 					$l=$l+1;
 				}
 				echo "</td><td align='right' width='30%'>";

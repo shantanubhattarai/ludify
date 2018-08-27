@@ -31,7 +31,7 @@
 //CHECK IF USER IS LOGGED IN
 							if(isset($_SESSION['user_id'])){
 								$user_id = $_SESSION['user_id'];
-								if(GetUserRole($conn,$user_id)==1){ 
+								if(GetUserRole($conn,$user_id)==1 || GetUserRole($conn,$user_id)==2){ 
 //IF THE USER IS A GENERAL USER
 						?>
 								<label>Status of Request: </label>
@@ -40,14 +40,15 @@
 								</div>
 						<?php
 								}
-								else{
+							if( GetUserRole($conn,$user_id)==2)
+							{
 //IF THE USER IS A DEVELOPER
 									$sql = "SELECT * FROM requests WHERE request_id = ".$id;
 									$res = mysqli_query($conn,$sql);
 									$row=mysqli_fetch_assoc($res);
 									if($row['accepted']!=1){
 						?>
-								<a class="btn btn-danger" href="database/accept_request.php">
+								<a class="btn btn-outline-danger" href="database/accept_request.php">
 									Accept the request
 								</a>
 						<?php

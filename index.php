@@ -2,14 +2,14 @@
 <?php include 'partial_upper.php'; ?>
 <?php include 'partial_sidebar.php'; ?>
 
-	<div class="col-md-9 container main-content">
+	<div class="col-md-7 container main-content">
 		<?php
 // FOR PAGE
 			$items_per_page = 4;
 			include 'include\pagination.php';
 //FOR SORTING
-			if( isset($_GET['order']) ) { $sortby = " ORDER BY ".$_GET['order']; }
-			else{ $sortby = " ORDER BY date_of_upload "; }
+			if( isset($_GET['order']) ) { $sortby = " ORDER BY ".$_GET['order']." ASC"; }
+			else{ $sortby = " ORDER BY date_of_upload DESC"; }
 			
 			if( isset($_GET['filter']) ) {
 				if($_GET['filter']!=0){ $condition = " WHERE article_category = ".$_GET['filter']; }
@@ -21,20 +21,9 @@
 				$condition = "WHERE article_title LIKE '%$search_text%'";
 			}
 			?>
-			<div class="card main-list">
-				<div class="card-body">
-					<form class="form-inline">
-						<div class="form-group">
-							<input class = "form-control mr-3" type="text" name="search_text" placeholder="Search by name">
-							<button class = "btn btn-outline-danger" type="submit" name = "search">Search</button>
-						</div>
-					</form>
-				</div>
-			</div>
-
 			<?php
-			$result = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." DESC LIMIT $start, $items_per_page");
-			$result1 = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." DESC");
+			$result = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby." LIMIT $start, $items_per_page");
+			$result1 = mysqli_query( $conn , " SELECT * FROM articles ".$condition.$sortby);
 			$total_items = mysqli_num_rows($result1); 
 			if($result)
 			while($row = mysqli_fetch_assoc($result)){
@@ -61,7 +50,9 @@
 			?>
 			
 		</div>
-
+<?php 
+	include 'partial_sidebar_right.php';
+?>
 	<script type="text/javascript">
 		sessionStorage.removeItem("index");
 	</script>

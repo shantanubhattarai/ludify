@@ -14,11 +14,11 @@
 		</div>
 
 		<div class="form-group">
-			<button  class=" btn btn-danger" type="submit" name="submit"> Login</button> <br>
+			<button  class=" btn btn-outline-danger" type="submit" name="submit"> Login</button> <br>
 		</div>
 			
 		<div class="form-group">				
-			 <a href="#" type="submit">Forgot Password?</a> <br>
+			<a href="#">Forgot Password?</a> <br>
 			Don't have an account yet?
 			<a href="register.php"> Register here. </a>
 		</div>

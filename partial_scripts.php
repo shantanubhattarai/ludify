@@ -4,9 +4,9 @@
 <!-- Toggle Filter Options -->
 
 <script>
-	$(document).ready(function(){
-		$( "#filter-options" ).hide();
-	});
+	// $(document).ready(function(){
+		// $( "#filter-options" ).hide();
+	// });
 
 	$(function() {
 		$( "#filter-toggle" ).click(function() {

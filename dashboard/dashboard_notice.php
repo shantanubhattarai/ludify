@@ -4,11 +4,15 @@
 	$row = mysqli_fetch_assoc($result);
 ?>
 <a href="/ludify/dashboard_admin.php?type=notices">
-	<button class="btn btn-danger">
+	<button class="btn btn-outline-danger">
 		Back to Notices
 	</button>
 </a>
-<h4 class="card-header"><?=$row['notice_title']?></h4>
+<div class="card-header"><?=$row['notice_title']?></div>
+
+<div class="card-body">
+
 <p class="card-text">
 	<?=$row['notice_body']?>
 </p>
+</div>

@@ -26,7 +26,7 @@
 					<textarea name="body" rows="15" cols="55"></textarea><br>
 
 				<input type="file" name="file"><br>
-				<input type="submit" value="Publish" name="article">
+				<input class="btn btn-outline-danger" type="submit" value="Publish" name="article">
 			</div>
 			</form>
 				</div>

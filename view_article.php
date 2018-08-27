@@ -5,14 +5,9 @@
 <?php include'partial_sidebar.php'; ?>
 		<div class="col-md-9 container main-content">
 			<?php
-<<<<<<< HEAD
-				$user_id = $_SESSION['user_id'];
-=======
 				if(isset($_SESSION['user_id'])){
 					$user_id = $_SESSION['user_id'];
 				}
-				
->>>>>>> 9e4e7e00c76f033a3299d9de8290b0f5f11a471b
 				$id = $_GET['article_id'];
 				$query = "SELECT * FROM articles WHERE article_id = $id";
 				$result = mysqli_query($conn, $query);
@@ -34,22 +29,18 @@
 							<input type="text" name="link" value=<?= $link ?> hidden>
 							<input type="text" name="file_id" value=<?= $row['file_id'] ?> hidden>
 							<br>
-							<input class="btn btn-danger" value="Download" type="submit" name="submit">
+							<input class="btn btn-outline-danger" value="Download" type="submit" name="submit">
 							File: <?= $file_name ?>
 						</div>	
 					</form>
 					<br>
 					No. of total Downloads: <?=$row2['no_of_downloads']?>
 						<?php
-<<<<<<< HEAD
-							if($user_id ==$row['author_id']){
-=======
 							if(isset($user_id) && $user_id ==$row['author_id']){
->>>>>>> 9e4e7e00c76f033a3299d9de8290b0f5f11a471b
 						?>
 						<div class="row">
-							<a href="edit_article.php?article_id=<?=$id?>" class="btn btn-danger"> Edit Article</a> &nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn btn-danger" onclick="confirmation();"> Delete Article</button>
+							<a href="edit_article.php?article_id=<?=$id?>" class="btn btn-outline-danger"> Edit Article</a> &nbsp;&nbsp;&nbsp;&nbsp;
+							<button class="btn btn-outline-danger" onclick="confirmation();"> Delete Article</button>
 						</div>
 						<?php
 							}
@@ -82,7 +73,7 @@
 							<textarea rows = "3" name="body"></textarea>
 							<input type="text" name="article_id" hidden value="<?=$id?>">
 							<div class="form-group">
-								<button type="submit" class="btn btn-outline-danger" name="submit">Submit</button>
+								<button type="submit" class="btn btn-outline-danger" name="submit">Add Comment</button>
 							</div>
 						</form>
 					</div>

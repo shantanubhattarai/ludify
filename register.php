@@ -58,7 +58,7 @@
 		</div>
 		 
 		<div class="form-group">
-			<button class="btn btn-danger" type="submit"  name="submit">Sign up</button>
+			<button class="btn btn-outline-danger" type="submit"  name="submit">Sign up</button>
 		</div>
 								
 	</form>
